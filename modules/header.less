@@ -10,11 +10,22 @@
 @maxButtonFontSize: 2em;
 
 // Style navbar
-.rm-desktop li {
-    background-color: #096;
+
+.rm-default.rm-desktop a {
+    margin-top: 1px;
+    padding-top: 10px;
+    height: 10px;
+    font-family: "robotoregular";
+    font-size: 16px;
 }
 
-@navbarItemBgColor: #096;
+
+
+.rm-desktop li {
+    background-color: transparent;
+}
+
+@navbarItemBgColor: transparent;
 
 
 // Size each item in the header
@@ -26,14 +37,39 @@
 }
 
 .site-header {
-    height: 80px;
+    height: 50px;
 }
 
-// Site title
+// Site title (i.e. Anax-flat)
 .site-logo-text {
     font-size: 2em;
-    
+
     a {
         text-decoration: none;
     }
+}
+
+// För att centrera flash-bilden
+// Denna sektion tillhör två separata klasser: inner-wrap och inner-wrap-flash
+.inner-wrap.inner-wrap-flash {
+    text-align: center;
+}
+
+.flash-image {
+    border: 8px ridge #D6DCDA;
+    border-radius: 8px;
+    padding-right: auto;
+    padding-left: auto;
+}
+
+.sidebar.sidebar-left.has-sidebar-left.has-sidebar {
+    //width: 237px; från början ändrar till:
+    background-color: none;
+    width: 15%;
+}
+
+
+.sidebar.sidebar-left.has-sidebar-left.has-sidebar h4 {
+    //width: 237px; från början ändrar till:
+    padding-left: 10px;
 }

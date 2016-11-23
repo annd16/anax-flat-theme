@@ -1,36 +1,352 @@
 /**
  * Regions, basics to show off the regions.
  */
+
+// FONT-QUERIES
+
+ @font-face {
+     font-family: 'asapbold';
+     src: url('fonts/asap-bold-webfont.woff2') format('woff2'),
+          url('fonts/asap-bold-webfont.woff') format('woff');
+     font-weight: normal;
+     font-style: normal;
+
+ }
+
+
+ @font-face {
+     font-family: 'robotobold';
+     src: url('fonts/roboto-bold-webfont.woff2') format('woff2'),
+          url('fonts/roboto-bold-webfont.woff') format('woff');
+     font-weight: normal;
+     font-style: normal;
+
+ }
+
+ @font-face {
+     font-family: 'robotomedium';
+     src: url('fonts/roboto-medium-webfont.woff2') format('woff2'),
+          url('fonts/roboto-medium-webfont.woff') format('woff');
+     font-weight: normal;
+     font-style: normal;
+
+ }
+
+ @font-face {
+     font-family: 'open_sansbold';
+     src: url('fonts/opensans-bold-webfont.woff2') format('woff2'),
+          url('fonts/opensans-bold-webfont.woff') format('woff');
+     font-weight: normal;
+     font-style: normal;
+
+ }
+
+ @font-face {
+     font-family: 'open_sanssemibold';
+     src: url('fonts/opensans-semibold-webfont.woff2') format('woff2'),
+          url('fonts/opensans-semibold-webfont.woff') format('woff');
+     font-weight: normal;
+     font-style: normal;
+
+ }
+
+ @font-face {
+     font-family: 'open_sansregular';
+     src: url('fonts/opensans-regular-webfont.woff2') format('woff2'),
+          url('fonts/opensans-regular-webfont.woff') format('woff');
+     font-weight: normal;
+     font-style: normal;
+
+ }
+
+ @font-face {
+     font-family: 'rubikmedium';
+     src: url('fonts/rubik-medium-webfont.woff2') format('woff2'),
+          url('fonts/rubik-medium-webfont.woff') format('woff');
+     font-weight: normal;
+     font-style: normal;
+ }
+
+ @font-face {
+     font-family: 'rubikregular';
+     src: url('fonts/rubik-regular-webfont.woff2') format('woff2'),
+          url('fonts/rubik-regular-webfont.woff') format('woff');
+     font-weight: normal;
+     font-style: normal;
+
+ }
+
+ @font-face {
+    font-family: 'robotoregular';
+    src: url('fonts/roboto-regular-webfont.woff2') format('woff2'),
+         url('fonts/roboto-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+// DEFINING FONTS TO BE USED
+
+ h2, h3 {
+     font-family: 'rubikmedium';
+     color: #0C2230;
+ }
+
+ h4 {
+     font-family: 'rubikregular';
+     color: #0C2230;
+ }
+
+ p {
+     font-family: "robotoregular";
+     color: #0C2230;
+ }
+
+ article.article {
+     font-size: 18px;
+ }
+
+// Diven som tillhör klassen .byline
+.byline {
+     font-size: 16px;
+ }
+
+// Diven som tillhör klasserna .column och footer.column
+ .column.footer-column {
+     font-size: 16px;
+ }
+
+.site-footer {
+    font-size: 12px;
+}
+
+
+// *******************************
+
+// DEFINING "LESS-VARAIBLES"
+ @owm: outer-wrap-main;
+ @art: article;
+
+// *******************************
+
+ html {
+     background: url(../img/color-1792501_1280-edit5.jpg) no-repeat center center fixed;
+     -webkit-background-size: cover;
+     -moz-background-size: cover;
+     -o-background-size: cover;
+     background-size: cover;
+     //background-color: #bdd18d;
+     overflow-y: scroll;     /*Visa alltid scrollbaren*/
+ }
+
+
 .wrap-all {
-    margin: 0 auto;
-    max-width: 950px;
+    margin: 5px auto;
+    border-radius: 10px;
+    padding-left: 2%;
+    padding-right: 2%;
+    padding-bottom: 1em;
+    max-width: 960px;
+    background-color: rgba(237, 246, 241, 0.8)
 }
 
-.footer-column {
-    float: left;
-    width: 33%;
-}
-
-.footer-column-wrapper {
-    border: 2px solid pink;
-    overflow: auto;
-}
+// MAIN AND SIDEBAR (IF PRESENT)
 
 .sidebar {
-    width: 33%;
+    width: 25%;
     float: left;
 }
 
 .main .has-sidebar {
-    width: 67%;
+    width: 75%;
+    //float: left;
+}
+
+.next-previous {
+    border: 4px solid yellow;
+    margin-left: 15%;
+    margin-right: 15%;
+    margin-bottom: 0;
+    min-height: 22px;
+    max-width: 672px;
+
+    .next,
+    .previous {
+        width: 50%;
+        padding-bottom: 0;
+        //height: 26.4px;
+        display: inline;
+    }
+
+    .next {
+        float: right;
+        text-align: right;
+        min-height: 26.4px;
+        padding-bottom: 0;
+    }
+}
+
+// Var tvungen att lägga till nav.breadcrumb-list (utöver breadcrum-list) för att kunna få
+//"list-style-type: none" och "display inline" även på "huvud-breadcrumben".
+.breadcrumb-list {
+    margin-bottom: 22px;
+
+    ul {
+        margin: 0;
+        padding: 0;
+        list-style-type: none;
+        display: inline;
+    }
+
+    li {
+        display: inline;
+
+        &::after {
+            content: " » ";
+        }
+    }
+}
+
+nav.breadcrumb-list {
+    max-width: 656px;
+    margin-left: 16%;
+    margin-right: 16%;
+    margin-bottom: 12px;
+    background-color:  rgb(179, 106, 200);
+    //display: inline;    // flyttade sig, men hamnade inte på samma rad
+}
+
+
+.site-header {
+    position: relative;
+}
+
+// ME-PAGE
+
+.me-image {
+    border: 8px ridge #D6DCDA;
+    margin-top: 15px;
+    border-radius: 8px;
+    margin-left: 20px;
+    float: right;
+}
+
+// Bilden på about-sidan
+.about-image {
+    float: right;
+    margin-right: 57%;
+}
+
+// Inlagt av aa
+.@{art} {
+    //padding: 100px;
+    clear: right;       // Added to get the next-previous bar to "fill up its space" even if previous is not showing.
+    border-radius: 10px;
+    background-color: rgba(219, 206, 221, 0.40);
+    min-height: 400px;
+}
+
+.route- .@{owm} .@{art} {
+    margin: 20px 50px 12px 50px;        //top, right, bottom, left
+    padding-bottom: 10px;
+}
+
+.route-me .@{owm} .@{art} {
+    margin: 20px 50px 12px 50px;
+    padding-bottom: 10px;
+}
+
+.route-about .@{owm} .@{art} {
+    margin: 20px 50px 12px 50px;
+    padding-bottom: 10px;
+}
+
+.route-test .@{owm} .@{art} {
+    margin: 20px 50px 12px 50px;
+    padding-bottom: 10px;
+}
+
+// ARTICLES ON ALL PAGES
+.@{owm} .@{art} {
+    //margin-left: 0 50% 50% 50%;
+    padding-top: 4px;
+    padding-right: 100px;
+    padding-left: 100px;
+}
+
+
+// REPORT-PAGE
+
+route-report .@{owm} .@{art} {
+        //padding-right: 0;
+        //padding-left: 0;
+        margin-top: 0;
+}
+.main.has-sidebar-left .@{art} {
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 10px;
+    margin-left: 15%;
+    margin-right: 15%;
+    background-color: rgba(183, 196, 212, 0.4);
+}
+
+// .outer-wrap .outerwrap-after-main {
+//     float: right;
+// }
+
+// BYLINE
+
+.byline {
+    max-width: 400px;
+    border: 4px double #D6DCDA;
+    text-align: left;
+    background-color: #EBF2E2;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 12px;
+}
+
+.byline-image {
+    //margin-top: 15px;
+    border-radius: 8px;
+    padding-left: 0;
+    //margin-right: 20px;
     float: left;
 }
 
 .outer-wrap-footer {
     clear: both;
-    margin-bottom: 22px;
+    margin-left: 3%;
+    margin-right: 3%;
+    margin-bottom: 12px;
 }
 
+.footer-column {
+    ul {
+        margin: 0;
+        padding: 2em;
+        list-style-type: circle;
+    }
+}
+
+.footer-column {
+    padding-left: 25px;
+    padding-bottom: 12px;
+    float: left;
+    width: 30%;
+    text-align: center;
+    //background-color: rgb(205, 99, 33);
+}
+
+.columns.footer-column-wrapper {
+    border: 2px solid pink;
+    overflow: auto;       // Om denna rad skippas, hamnar det som kommer efter de tre footerkolumnerna (copyright, license Cookies etc) att bilda en 4:e kolumn.
+}
+
+
+// THE SITE-FOOTER i.e Copyright, license, Cookies etc
 .site-footer {
     text-align: center;
 
@@ -43,46 +359,4 @@
     li {
         display: inline;
     }
-}
-
-.footer-column {
-    ul {
-        margin: 0;
-        padding: 1em;
-        list-style-type: circle;
-    }
-}
-
-.next-previous {
-    .next,
-    .previous {
-        width: 50%;
-    }
-
-    .next {
-        float: right;
-        text-align: right;
-    }
-}
-
-.breadcrumb {
-    margin-bottom: 22px;
-
-    ul {
-        margin: 0;
-        padding: 0;
-        list-style-type: none;
-    }
-
-    li {
-        display: inline;
-
-        &::after {
-            content: " » ";
-        }
-    }
-}
-
-.site-header {
-    position: relative;
 }

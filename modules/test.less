@@ -1,0 +1,92 @@
+// Tester på test-sidan
+
+
+@bc: background-color;
+//@counter: 5;
+
+@counter2: #fff;
+.loop(@counter) when (@counter > 0) {
+.loop((@counter - 1));    // next iteration
+height: (10px * @counter);
+background-color: @counter2 + #341234;
+}
+
+.route-test .article div {
+    @bc: blue;
+    border: 2px solid green;
+    .loop(5); // launch the loop
+}
+
+
+body {
+  counter-reset: section;   /* Set the section counter to 0 */
+}
+
+.route-test h3::before {
+  counter-increment: section;                /* Increment the section counter*/
+  content: "Section " counter(section) ": "; /* Display the counter */
+}
+
+
+@nice-blue: #5B83AD;
+@light-blue: @nice-blue + #111;
+
+.route-test p {
+  color: darken(#5B83AD, 40%);
+}
+
+
+.generate-columns(4);
+
+.generate-columns(@n, @i: 1) when (@i =< @n) {
+  .column-@{i} {
+    width: (@i * 100% / @n);
+  }
+  .generate-columns(@n, (@i + 1));
+}
+
+body {
+  counter-reset: section;   /* Set the section counter to 0 */
+}
+
+.route-test col::after {
+  counter-increment: section;                /* Increment the section counter*/
+  content: counter(section) ": "; /* Display the counter */
+}
+
+// .route-test {
+//   width: auto;
+//   @list: blue, @light-blue 30%, rgba(179, 188, 255, 0.50) 60%, rgba(0,0,255,0.5);
+//   background-image: svg-gradient(to right, @list);
+// }
+
+// .route- {
+//     background: url(../img/color-1792501_1280-edit3.jpg) no-repeat center center fixed;
+//     -webkit-background-size: cover;
+//     -moz-background-size: cover;
+//     -o-background-size: cover;
+//     background-size: cover;
+// }
+//
+//
+// .route-me {
+//     .route-
+// }
+//
+// .route-report {
+//     .route-
+// }
+//
+// .route-about {
+//     .route-
+// }
+
+
+.route-test {
+      background: #0C90F4; /* For browsers that do not support gradients */
+      background: -webkit-linear-gradient(#1556F0, #CDD0D2, #0C90F4); /* For Safari 5.1 to 6.0 */
+      background: -webkit-linear-gradient(#1556F0, #CDD0D2, #0C90F4); /* For Safari 5.1 to 6.0 */
+      background: -o-linear-gradient(#1556F0, #CDD0D2, #0C90F4); /* For Opera 11.1 to 12.0 */
+      background: -moz-linear-gradient(#1556F0, #CDD0D2, #0C90F4); /* For Firefox 3.6 to 15 */
+      background: linear-gradient(#1556F0, #CDD0D2, #0C90F4); /* Standard syntax */
+  }
