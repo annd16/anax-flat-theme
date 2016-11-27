@@ -5,9 +5,13 @@ img {
     max-width: 100%;
 }
 
+
+//*************************************
+
 @media screen and (max-width: 900px) {
     .site-logo-text {
-        width: 40%;
+        //background-color: yellow;
+        width: 35%;
     }
 
     .navbar2 {
@@ -17,31 +21,289 @@ img {
     .profile {
         width: 10%;
     }
+
+    .content .byline {
+        //background-color: brown;
+        max-width: 57%;
+    }
+
+// Sidobarens vänstra padding minskas från X till 1em för att få plats;
+    ul.toc {
+        //background-color: orange;
+        padding-left: 1em;
+    }
+// Footer-kolumnernas högermarginal tas bort helt
+    .footer-column {
+        //background-color: blue;
+        margin-right: 0;
+    }
+
+    .route-me .@{owm} .@{art} {
+        //background-color: beige;
+        padding: 0.25em 4em 0.25em 2em;     //top, right, bottom, left
+
+    }
+
 }
 
+
+//*************************************
+
+@media screen and (max-width: 800px) {
+    .content .byline {
+        //background-color: yellow;
+        max-width: 60%;
+    }
+
+    .about-image {
+        text-align: left;
+    }
+
+}
+
+
+//*************************************
 
 @media screen and (max-width: 750px) {
     .sidebar {
         //width: 100%;
         display: none;
     }
+
+    // Gör denna bar bredare
+    .next-previous {
+        //border: 2px solid yellow;
+        margin-left: 5%;
+        margin-right: 5%;
+        //max-width: 672px;
+        max-width: 90%;
+    }
+
+    // ARTIKLARNA GÖRS ÄNNU BREDARE
+
+    .route-me .@{owm} .@{art} {
+        //background-color: pink;
+        max-width: 80%;
+        padding: 0.25em 1em 0.25em 1em;     //top, right, bottom, left
+
+    }
+
+    .@{owm} .@{art} {
+        //background-color: pink;
+        max-width: 80%;
+        padding: 0.25em 1em 0.25em 1em;     //top, right, bottom, left
+    }
+
+    // Report artikeln:
+    .main.has-sidebar-left .@{art} {
+        //background-color: aqua;
+        max-width: 80%;
+        padding-left: 1em;
+        padding-right: 0;
+        padding-bottom: 1em;
+    }
+
+    .inner-wrap.inner-wrap-flash {
+        clear: both;
+        min-width: 100%;
+        padding-right: 1.2em;
+        //background-color: gold;
+    }
+
+    .flash-image {
+        min-width: 95%;
+        max-height: 100%;
+    }
+
+
+    .wrap-all {
+        padding-right: 1.5em;              // Tar bort padding-right på artiklarana och lägger t på wrap-all istället
+    }
+
 }
 
+
+//*************************************
 
 @media screen and (max-width: 700px) {
-    .footer-column {
-        width: 100%;
+
+    .content .byline {
+        width: 50%;
+        text-align: center;
+        padding: 0.5em 1em 0.5em 1em;
+        //margin-bottom: 12px;
     }
+
+    .byline-image {
+        display: none;
+    }
+
+
+    .footer-column {
+        width: 90%;
+        margin-left: 0;
+    }
+
+    .me-image {
+        width: 40%;
+        float: none;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+
 }
 
 
+//*************************************
+
+@media screen and (max-width: 620px) {
+
+    .footer-column {
+        width: 90%;
+        margin-left: 0;
+    }
+
+}
+
+
+//*************************************
+
 @media screen and (max-width: 560px) {
-     .site-logo-text {
-         width: 90%;
+
+     .wrap-all {
+         font-size: 80%;
      }
-     
+
+     .site-logo-text {
+         width: 70%;
+     }
+
      .navbar2 {
          display: none;
      }
+
+     // ARTIKLARNA GÖRS ÄNNU BREDARE
+
+     .@{owm} .@{art} {
+        // background-color: pink;
+        max-width: 90%;
+        //  padding: 0.25em 0.5em 0.25em 0.5em;     //top, right, bottom, left
+        margin-left: auto;
+        margin-right: auto;
+     }
+
+     // Me-artikeln
+     .route-me .@{owm} .@{art} {
+        //.@{owm} .@{art}
+         //background-color: pink;
+         min-width: 80%;
+         max-width: 85%;
+         padding: 0.25em 2em 0.25em 2em;     //top, right, bottom, left
+
+     }
+
+     // Report artikeln:
+     .main.has-sidebar-left .@{art} {
+         background-color: turquoise;
+         max-width: 80%;
+         padding-left: 4em;
+         padding-right: 4em;
+         padding-bottom: 1em;
+     }
+
+     main.main.has-sidebar-left .@{art} {
+         margin-left: auto;
+         margin-right: auto;
+     }
+
+
+     .me-image {
+         max-width: 85%;
+         float: none;
+         display: block;
+         margin-left: auto;
+         margin-right: auto;
+     }
  }
- 
+
+
+ //*************************************
+
+@media screen and (max-width: 420px) {
+
+    .site-logo-text {
+        width: 60%;
+    }
+
+
+    // ARTIKLARNA GÖRS ÄNNU BREDARE
+
+    .@{owm} .@{art} {
+        //background-color: pink;
+        max-width: 95%;
+        padding: 0.25em 0.5em 0.25em 0.5em;     //top, right, bottom, left
+    }
+
+    // Me-artikeln
+    .route-me .@{owm} .@{art} {
+       //.@{owm} .@{art}
+        //background-color: green;
+        //min-width: 80%;
+        max-width: 90%;
+        //padding: 0.25em 2em 0.25em 2em;     //top, right, bottom, left
+
+    }
+
+    .@{art} {
+        text-align: left;
+    }
+
+    // Report artikeln:
+    .main.has-sidebar-left .@{art} {
+        //background-color: purple;
+        max-width: 85%;
+        padding-left: 2em;
+        padding-right: 2em;
+        //padding-bottom: 1em;
+        text-align: left;
+    }
+
+    .me-image {
+        width: 35%;
+        margin-left: auto;
+        margin-rigtht: auto;
+    }
+
+    .content .byline {
+        width: 80%;
+    }
+
+    .column.footer-column {
+        font-size: 95%;
+    }
+
+}
+
+
+//*************************************
+
+@media screen and (max-width: 300px) {
+
+    .site-logo-text-icon {
+        img {
+            width: 20%;
+        }
+    }
+
+    .site-logo-text {
+        width: 65%;
+        font-size: 1.3em;
+    }
+
+    .breadcrumb-list {
+        font-size: 0.90em;
+    }
+
+}

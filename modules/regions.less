@@ -5,61 +5,6 @@
 // FONT-QUERIES
 
  @font-face {
-     font-family: 'asapbold';
-     src: url('fonts/asap-bold-webfont.woff2') format('woff2'),
-          url('fonts/asap-bold-webfont.woff') format('woff');
-     font-weight: normal;
-     font-style: normal;
-
- }
-
-
- @font-face {
-     font-family: 'robotobold';
-     src: url('fonts/roboto-bold-webfont.woff2') format('woff2'),
-          url('fonts/roboto-bold-webfont.woff') format('woff');
-     font-weight: normal;
-     font-style: normal;
-
- }
-
- @font-face {
-     font-family: 'robotomedium';
-     src: url('fonts/roboto-medium-webfont.woff2') format('woff2'),
-          url('fonts/roboto-medium-webfont.woff') format('woff');
-     font-weight: normal;
-     font-style: normal;
-
- }
-
- @font-face {
-     font-family: 'open_sansbold';
-     src: url('fonts/opensans-bold-webfont.woff2') format('woff2'),
-          url('fonts/opensans-bold-webfont.woff') format('woff');
-     font-weight: normal;
-     font-style: normal;
-
- }
-
- @font-face {
-     font-family: 'open_sanssemibold';
-     src: url('fonts/opensans-semibold-webfont.woff2') format('woff2'),
-          url('fonts/opensans-semibold-webfont.woff') format('woff');
-     font-weight: normal;
-     font-style: normal;
-
- }
-
- @font-face {
-     font-family: 'open_sansregular';
-     src: url('fonts/opensans-regular-webfont.woff2') format('woff2'),
-          url('fonts/opensans-regular-webfont.woff') format('woff');
-     font-weight: normal;
-     font-style: normal;
-
- }
-
- @font-face {
      font-family: 'rubikmedium';
      src: url('fonts/rubik-medium-webfont.woff2') format('woff2'),
           url('fonts/rubik-medium-webfont.woff') format('woff');
@@ -103,18 +48,23 @@
      color: #0C2230;
  }
 
+ .rm-default.rm-desktop {
+    font-size: 1em;
+}
+
+
  article.article {
-     font-size: 18px;
+     font-size: 1em;
  }
 
 // Diven som tillhör klassen .byline
 .byline {
-     font-size: 16px;
+     font-size: 0.95em;
  }
 
 // Diven som tillhör klasserna .column och footer.column
  .column.footer-column {
-     font-size: 16px;
+     font-size: 14px;
  }
 
 .site-footer {
@@ -148,13 +98,15 @@
     padding-right: 2%;
     padding-bottom: 1em;
     max-width: 960px;
-    background-color: rgba(237, 246, 241, 0.8)
+    //background-color: rgba(237, 246, 241, 0.7);
+    background-color: rgba(220, 220, 220, 0.7);
 }
 
 // MAIN AND SIDEBAR (IF PRESENT)
 
 .sidebar {
-    width: 25%;
+    background-color: none;
+    width: 15%;
     float: left;
 }
 
@@ -164,36 +116,35 @@
 }
 
 .next-previous {
-    border: 4px solid yellow;
+    min-height: 1em;
+    //border: 2px solid yellow;
     margin-left: 15%;
     margin-right: 15%;
-    margin-bottom: 0;
-    min-height: 22px;
-    max-width: 672px;
+    margin-bottom: 0.5em;
+    //max-width: 672px;
+    max-width: 70%;
 
     .next,
     .previous {
         width: 50%;
+        min-height: 1em;
         padding-bottom: 0;
-        //height: 26.4px;
         display: inline;
     }
 
     .next {
         float: right;
         text-align: right;
-        min-height: 26.4px;
         padding-bottom: 0;
     }
 }
 
-// Var tvungen att lägga till nav.breadcrumb-list (utöver breadcrum-list) för att kunna få
+// Var tvungen att lägga till nav.breadcrumb-list (utöver breadcrumb-list) för att kunna få
 //"list-style-type: none" och "display inline" även på "huvud-breadcrumben".
 .breadcrumb-list {
-    margin-bottom: 22px;
 
     ul {
-        margin: 0;
+        //margin: 0;
         padding: 0;
         list-style-type: none;
         display: inline;
@@ -208,13 +159,14 @@
     }
 }
 
-nav.breadcrumb-list {
-    max-width: 656px;
-    margin-left: 16%;
-    margin-right: 16%;
-    margin-bottom: 12px;
-    background-color:  rgb(179, 106, 200);
-    //display: inline;    // flyttade sig, men hamnade inte på samma rad
+.breadcrumb-wrap {
+        //max-width: 656px;
+        max-width: 70%;
+        margin-left: 15%;
+        margin-right: 15%;
+        margin-bottom: 1em;
+        //background-color:  rgb(179, 106, 200);
+        //display: inline;    // flyttade sig, men hamnade inte på samma rad
 }
 
 
@@ -223,140 +175,95 @@ nav.breadcrumb-list {
 }
 
 // ME-PAGE
-
 .me-image {
-    border: 8px ridge #D6DCDA;
-    margin-top: 15px;
-    border-radius: 8px;
-    margin-left: 20px;
+    width: 250px;
+    border: 6px ridge #D6DCDA;
+    border-radius: 6px;
+    margin-top: 1em;
+    margin-bottom: 0.5em;
+    margin-left: 1em;
     float: right;
 }
 
-// Bilden på about-sidan
+// ABOUT-PAGE
 .about-image {
-    float: right;
-    margin-right: 57%;
+    background-color: rgb(237, 246, 241);
+    width: 10%;
+    min-width: 40px;
+    border: 4px ridge #D6DCDA;
+    border-radius: 4px;
+    padding: 0.3em 0.3em 0 0.3em;
+    margin-left: 5%;
+    margin-right: 85%;
 }
 
-// Inlagt av aa
+
+// ARTICLES ON ALL PAGES
+
+//Inlagt av aa
 .@{art} {
-    //padding: 100px;
     clear: right;       // Added to get the next-previous bar to "fill up its space" even if previous is not showing.
-    border-radius: 10px;
-    background-color: rgba(219, 206, 221, 0.40);
-    min-height: 400px;
-}
-
-.route- .@{owm} .@{art} {
-    margin: 20px 50px 12px 50px;        //top, right, bottom, left
-    padding-bottom: 10px;
-}
-
-.route-me .@{owm} .@{art} {
-    margin: 20px 50px 12px 50px;
-    padding-bottom: 10px;
+    //max-width: 65%;
+    margin: 1em 10% 1em 10%;  //top, right, bottom, left
+    text-align: justify;
 }
 
 .route-about .@{owm} .@{art} {
-    margin: 20px 50px 12px 50px;
-    padding-bottom: 10px;
+    text-align: left;
 }
 
-.route-test .@{owm} .@{art} {
-    margin: 20px 50px 12px 50px;
-    padding-bottom: 10px;
-}
 
-// ARTICLES ON ALL PAGES
 .@{owm} .@{art} {
-    //margin-left: 0 50% 50% 50%;
-    padding-top: 4px;
-    padding-right: 100px;
-    padding-left: 100px;
-}
+    //clear: right;       // Added to get the next-previous bar to "fill up its space" even if previous is not showing.
+    max-width: 80%;
+    min-height: 25em;
+    padding: 0.25em 4em 0.25em 5em;     //top, right, bottom, left
+    border-radius: 10px;
+    //background-color: rgba(219, 206, 221, 0.40);
+    //background-color: rgba(232, 244, 194, 0.4);
+    //background-color: rgba(222, 240, 244, 0.4);
+    //background-color: rgba(198, 245, 234, 0.4);
+    //background-color: rgba(183, 196, 212, 0.4);
+    background-color: rgba(162, 121, 187, 0.2);
 
+}
 
 // REPORT-PAGE
 
-route-report .@{owm} .@{art} {
-        //padding-right: 0;
-        //padding-left: 0;
-        margin-top: 0;
-}
+// route-report .@{owm} .@{art} {
+//         margin-top: 5em;
+// }
+
 .main.has-sidebar-left .@{art} {
-    padding-left: 10px;
-    padding-right: 10px;
-    padding-bottom: 10px;
-    margin-left: 15%;
-    margin-right: 15%;
-    background-color: rgba(183, 196, 212, 0.4);
+    margin-top: 0;
+    padding-left: 3.5em;
+    padding-right: 3.5em;
+    padding-bottom: 1em;
+    max-width: 68%;
+    margin-left: 16%;
+    margin-right: 16%;
+    background-color: rgba(162, 121, 187, 0.2);
 }
 
-// .outer-wrap .outerwrap-after-main {
-//     float: right;
-// }
 
 // BYLINE
 
-.byline {
-    max-width: 400px;
-    border: 4px double #D6DCDA;
+.content .byline {
+    max-width: 45%;
+    border: 2px solid #D6DCDA;
+    border-radius: 4px;
     text-align: left;
-    background-color: #EBF2E2;
+    background-color: rgba(235, 242, 227, 0.6);
     margin-left: auto;
     margin-right: auto;
-    margin-bottom: 12px;
+    padding-right: 0.5em;
+    padding-bottom: 0.5em;      // För att få ett mellanrum mellan bilden och bylinens ram.
+    margin-bottom: 18px;
 }
 
 .byline-image {
-    //margin-top: 15px;
+    margin: 0.5em 1em 0.25em 0.5em;
+    //border: 1px solid green;
     border-radius: 8px;
-    padding-left: 0;
-    //margin-right: 20px;
     float: left;
-}
-
-.outer-wrap-footer {
-    clear: both;
-    margin-left: 3%;
-    margin-right: 3%;
-    margin-bottom: 12px;
-}
-
-.footer-column {
-    ul {
-        margin: 0;
-        padding: 2em;
-        list-style-type: circle;
-    }
-}
-
-.footer-column {
-    padding-left: 25px;
-    padding-bottom: 12px;
-    float: left;
-    width: 30%;
-    text-align: center;
-    //background-color: rgb(205, 99, 33);
-}
-
-.columns.footer-column-wrapper {
-    border: 2px solid pink;
-    overflow: auto;       // Om denna rad skippas, hamnar det som kommer efter de tre footerkolumnerna (copyright, license Cookies etc) att bilda en 4:e kolumn.
-}
-
-
-// THE SITE-FOOTER i.e Copyright, license, Cookies etc
-.site-footer {
-    text-align: center;
-
-    ul {
-        margin: 0;
-        padding: 0;
-        list-type: none;
-    }
-
-    li {
-        display: inline;
-    }
 }
