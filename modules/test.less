@@ -1,5 +1,162 @@
 // Tester på test-sidan
 
+// TEST AV NESTED CONTENT!
+
+.route-test body {
+    // margin: 0;
+}
+
+.route-test .wrap-all {
+    margin-bottom: 2em;
+    // background-color: brown;
+    border: 4px double lime;
+}
+
+// .row {
+//     box-sizing: border-box;
+//     margin-bottom: 10px;
+//     background-color: rgba(102, 255, 153, 0.5);
+// }
+
+.row2 {
+    box-sizing: border-box;
+    margin-bottom: 10px;
+    background-color: #eaff66;
+}
+
+.row-nested {
+    box-sizing: border-box;
+    margin-bottom: 10px;
+    background-color: rgba(255, 180, 102, 0.5);
+}
+
+.row2-nested {
+    box-sizing: border-box;
+    margin-bottom: 10px;
+    background-color: #ff66e7;
+}
+
+
+// span {
+//     box-sizing: border-box;
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
+//     min-height: 60px;
+//
+//     background-color: #666;
+//     color: #fff;
+// }
+
+
+
+// Nested columns
+
+
+// .col-nested {
+//     .column(8);
+// }
+//
+// .row-nested {
+//     .row(8);
+// }
+//
+// .block {
+//     .column(4, 8);
+// }
+//
+// .col {
+//     .column(4);
+//
+
+.col-nested {
+    border-sizing: border-box;
+    .column(8);
+}
+
+.row-nested {
+    border-sizing: border-box;
+    .row(8);
+    .push(3);
+}
+
+.block {
+    .column(6, 8);
+}
+
+.col {
+    .column(4);
+}
+
+
+// Nested columns
+.col2-nested {
+    .column(6);
+}
+
+.row2-nested {
+    .row(6);
+}
+
+.block2 {
+    .column(3, 6);
+}
+
+div.block2 {
+    margin: 0;
+}
+
+.col2 {
+    .column(3);
+}
+
+div.col2 {
+    background-color: green;
+    .column(4);
+    margin-left: 0;
+}
+
+div.col2 span {
+    background-color: red;
+}
+
+div.block2 span {
+    background-color: blue;
+    // height: 80%;
+    // width: 80%;
+}
+
+.route-test .@{owm} .@{art} {
+    //clear: right;       // Added to get the next-previous bar to "fill up its space" even if previous is not showing.
+    // width: 100%;
+    // max-width: 100%;
+    // min-height: 25em;
+    // padding: 0.25em 4em 0.25em 5em;     //top, right, bottom, left
+    // background-color: yellow;
+    //.column(12);
+//     border-radius: 10px;
+}
+
+
+.route-test .row .main  {
+    .row(12);
+    box-sizing: border-box;
+    background-color: rgba(76, 131, 106, 0.5);
+    border: 2px solid black;
+    // .column(12);
+    .column(10);
+    .push(1);
+    div.row article {
+        .column(8);      // Har ingen effekt!
+        .push(1);         // Har ingen effekt om width och margin-left anges nedan!
+        // width: 80%;
+        // margin-left: 10%;
+        border: 1px dashed rgb(76, 131, 106);
+        // background-color: green;
+    }
+
+}
+
 
 //Mixin
 
@@ -130,10 +287,10 @@ body {
 
 
 .route-test {
-      background: #0C90F4; /* For browsers that do not support gradients */
-      background: -webkit-linear-gradient(#1556F0, #CDD0D2, #0C90F4); /* For Safari 5.1 to 6.0 */
-      background: -webkit-linear-gradient(#1556F0, #CDD0D2, #0C90F4); /* For Safari 5.1 to 6.0 */
-      background: -o-linear-gradient(#1556F0, #CDD0D2, #0C90F4); /* For Opera 11.1 to 12.0 */
-      background: -moz-linear-gradient(#1556F0, #CDD0D2, #0C90F4); /* For Firefox 3.6 to 15 */
-      background: linear-gradient(#1556F0, #CDD0D2, #0C90F4); /* Standard syntax */
+      background: #86d984; /* For browsers that do not support gradients */
+      background: -webkit-linear-gradient(#78948b, #CDD0D2, #86d984, #78948b, #CDD0D2, #86d984, #78948b, #CDD0D2, #86d984); /* For Safari 5.1 to 6.0 */
+      background: -webkit-linear-gradient(#78948b, #CDD0D2, #86d984, #78948b, #CDD0D2, #86d984, #78948b, #CDD0D2, #86d984); /* For Safari 5.1 to 6.0 */
+      background: -o-linear-gradient(#78948b, #CDD0D2, #86d984, #78948b, #CDD0D2, #86d984, #78948b, #CDD0D2, #86d984); /* For Opera 11.1 to 12.0 */
+      background: -moz-linear-gradient(#78948b, #CDD0D2, #86d984, #78948b, #CDD0D2, #86d984, #78948b, #CDD0D2, #86d984); /* For Firefox 3.6 to 15 */
+      background: linear-gradient(#78948b, #CDD0D2, #86d984, #78948b, #CDD0D2, #86d984, #78948b, #CDD0D2, #86d984); /* Standard syntax */
   }

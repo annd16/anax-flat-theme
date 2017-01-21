@@ -1,9 +1,12 @@
 .outer-wrap-footer {
-    clear: both;
-    //border: 1px solid red;
-    width: 92%;
-    margin: auto;
+    box-sizing: border-box;
+    // border: 2px solid purple;
+    background-color: rgba(161, 155, 123, 0.5);
     margin-bottom: 1em;
+    color: rgb(246, 252, 240);
+    a {
+        color: rgb(246, 252, 240);
+    }
 }
 
 .footer-column {
@@ -11,41 +14,68 @@
         margin: 0;
         padding-left: 1.2em;
         list-style-type: circle;
+        // background-color: rgb(100, 22, 22);
     }
 }
 
-.footer-column {
-    //border: 1px solid lime;
-    padding-left: 1em;
-    padding-right: 1em;
-    margin-left: 1em;
-    margin-right: 1em;
-    padding-bottom: 1.5em;
-    float: left;
-    height: 100%;
-    width: 26%;
-    //text-align: center;
-    //background-color: rgb(205, 99, 33);
+.site-footer ul {
+    box-sizing: border-box;
+    // border: 2px solid purple;
+    //background-color: rgb(200, 22, 22);
+    //margin: auto;
+    padding-left: 0 !important;
 }
 
+.footer-column {
+    box-sizing: border-box;
+    border: 1px dashed rgb(159, 153, 122);
+    border-radius: 4px;
+    padding-left: 2em;
+    padding-right: 0.5em;
+    //border: 2px dashed yellow;
+    .column(@columns/3);
+    // background-color: rgb(205, 99, 33);
+    vertical-align: middle;     //Fungerar inte!
+}
+
+// .column.footer-column {
+//     // margin: 0;
+//     // border: 2px dashed yellow;
+// }
+
 .columns.footer-column-wrapper {
-    width: 100%;
-    //border: 1px solid pink;
+    vertical-align: middle;
+    // border: 2px solid pink;
     overflow: auto;       // Om denna rad skippas, hamnar det som kommer efter de tre footerkolumnerna (copyright, license Cookies etc) att bilda en 4:e kolumn.
+    margin-bottom: @magicNumber*1.5;
 }
 
 
 // THE SITE-FOOTER i.e Copyright, license, Cookies etc
-.site-footer {
+div.site-footer {
+    .column(@columns);
     text-align: center;
 
     ul {
-        margin: 0;
-        padding: 0;
+        margin-top: 0;
+        margin-bottom: @magicNumber;
+        padding-left: 0;
+        padding-right: 0;
         list-type: none;
     }
 
     li {
         display: inline;
+    }
+}
+
+div.site-footer {
+    ul {
+        // padding-top: (@magicNumber/2)-2px;
+    }
+    p {
+        // padding-top: (@magicNumber/2);
+            margin-top: 0;
+            margin-bottom: @magicNumber;
     }
 }

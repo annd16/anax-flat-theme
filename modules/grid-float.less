@@ -26,15 +26,25 @@
     }
 }
 
-
+// Modifiering enligt video 307 för att snygga till API.et till gridet
 
 /**
  * Wrap grid in a container.
  */
-.container() {
+// .container() {
+//     margin-right: auto;
+//     margin-left: auto;
+// }
+
+// .container döps om till .grid och modifieras enligt nedan:
+ .grid(@maxWidth: 1100px) {
     margin-right: auto;
     margin-left: auto;
+    max-width: @maxWidth;
 }
+
+//**************************************
+
 
 
 

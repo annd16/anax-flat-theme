@@ -4,19 +4,72 @@
 @import url(modules.less);
 
 
+ html {
+     background: url(../img/color-1792501_1280-edit5.jpg) no-repeat center center fixed;
+     -webkit-background-size: cover;
+     -moz-background-size: cover;
+     -o-background-size: cover;
+     background-size: cover;
+     //background-color: #bdd18d;
+     overflow-y: scroll;     /*Visa alltid scrollbaren*/
+ }
 
-/** --------------------------------------------------------------
- *  Logo images
- */
-.logo-1 {
-    position: absolute;
-    top: 70px;
-    //left: -140px;
-    left: -220px;
+
+ .wrap-all {
+
+       background-color: rgba(220, 220, 220, 0.3);
+       color: rgb(55, 55, 60);
+ }
+
+// // MAIN AND SIDEBAR (IF PRESENT)
+//
+ .sidebar {
+     background-color: none;
 }
 
-.site-logo-text-icon {
-    img {
-        vertical-align: bottom;
-    }
+
+//// ABOUT-PAGE
+
+ .about-image {
+    background-color: rgb(237, 246, 241);
 }
+
+
+.about-image {
+    margin-top: (@magicNumber)-4px;
+    margin-bottom: (@magicNumber)*6;    // Fungerar inte!
+}
+
+
+ .@{owm} .@{art} {
+    background-color: rgba(162, 121, 187, 0.2);
+}
+
+
+.main.has-sidebar-left .@{art} {
+    // background-color: rgba(162, 121, 187, 0.2);
+}
+
+
+// BYLINE
+
+.content .byline {
+    background-color: rgba(235, 242, 227, 0.3);
+    padding-bottom: @magicNumber/2;      // För att få ett mellanrum mellan bilden och bylinens ram.
+}
+
+
+.byline-image {
+    margin: (@magicNumber)-1 @magicNumber/2 0 @magicNumber/2;
+    border-radius: 8px;
+    float: left;
+}
+
+
+// div.outer-wrap.outer-wrap-footer {
+//     background-color: rgba(161, 155, 123, 0.5);
+//     color: rgb(246, 252, 240);
+//     a {
+//         color: rgb(246, 252, 240);
+//     }
+// }

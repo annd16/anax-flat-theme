@@ -1,0 +1,33 @@
+// grid-helpers.less
+// Med hjälp av denna modul ska det vertikala gridet visas.
+
+/**
+ * Show grid.
+ */
+.showGrid(@maxWidth: 1100px, @gridImage) {
+    // background: url(../img/grid/grid950x24x50x10-nomargin.png) repeat-y fixed center center;
+
+    // Variable interpolation in a string:
+    background: url("@{gridImage}") repeat-y fixed center center;
+    background-size: 100% auto;
+    // margin-left: auto;           //Tas bort enl video 397
+    // margin-right: auto;
+    max-width: @maxWidth;
+
+    @media (min-width: @maxWidth) {
+        background-size: @maxWidth auto;
+    }
+    // z-index: 1;
+}
+
+
+.showHorisontalGrid(@maxWidth: 1100px) {
+    //Måste vara background-image här och man vill inte ha repeat-y eller den efterföljande texten!
+    // background-image: url(../img/grid/horisontal-grid-24.png);
+    background-image: url(../img/grid/horisontal-grid-24.png);
+}
+
+
+// The variable interpolation is a process of evaluating an expression or literal containing one or more variables,
+// yielding output in which the variables are replaced with their corresponding values.
+// The variables can also be used in other places like selector names, property names, URLs and @import statements.

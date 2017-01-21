@@ -1,6 +1,29 @@
-/** --------------------------------------------------------------
- *  Header
- */
+/** -------------------------------------------
+/*  Header
+/**-------------------------------------------*/
+
+// Modifiering av den responsiva knappmenyn
+// (som den defineras i responsive-menu.less)
+
+@maxBgColor:                #DBCDBB;
+
+.rm-default {
+
+    // The link of the menu item
+    a {
+
+        padding: @magicNumber/2;
+    }
+}
+
+.rm-max {
+    // Customize the mobile menu, hide by default
+     .rm-mobile {
+        padding-top: @magicNumber*2.5;
+        // background-color: @maxBgColor;
+     }
+}
+
 
 // Size of max navbar button
 .rm-max .rm-small .rm-button {
@@ -12,13 +35,11 @@
 // Style navbar
 
 .rm-default.rm-desktop a {
-    margin-top: 1px;
-    padding-top: 10px;
+    padding-top: @magicNumber;
     padding-left: 0.5em;
     padding-right: 0.5em;
-    height: 1em;
-    font-family: "robotoregular";
-    //font-size: 16px;
+    // height: 1em;
+    // font-family: "robotoregular";
 }
 
 .rm-desktop li {
@@ -28,17 +49,103 @@
 @navbarItemBgColor: transparent;
 
 
-// Size each item in the header
-.site-logo-text,
-.navbar2,
-.profile {
-    float: left;
-    width: 30%;
+.site-header {
+    position: relative;
+    box-sizing: border-box;
+    border: 2px solid grey;
+    background-color: rgba(161, 155, 123, 0.5);
+    color: rgb(246, 252, 240);
+    margin-bottom: @magicNumber/2;         //För att få avstånd mellan site-headern och flash-bilden.
+    overflow: auto; // Krävdes för att site-headern skulle omsluta sina "barn-element"
+    height: (@magicNumber*3);
+
 }
 
-.site-header {
-    height: 50px;
+// Size each item in the header
+.site-logo-text {
+    float: left;
+    box-sizing: border-box;
+    border: 1px dashed grey;
+    // background-color: red;
+    .column(@columns/4);
+    font-family: sans-serif;
+    overflow: visible;
+    height: 100%;
 }
+
+.navbar2 {
+    float: left;
+    box-sizing: border-box;
+    border: 1px dashed grey;
+    // background-color: blue;
+    .column(@columns/2);
+    height: 100%;
+}
+
+.rm-navbar ul.rm-default {
+    margin-top: 0;
+    margin-bottom: 0;
+    height: 100%;
+}
+
+// div.outer-wrap.outer-wrap-header {
+//     background-color: magenta;
+// }
+
+.rm-navbar-max ul.rm-small {
+    margin-top: 0;                  // Ta ej bort!
+    margin-bottom: 0;               // Ta ej bort!
+    height: 100%;
+    // background-color: green;
+    overflow: auto;     // Har ingen effect!
+}
+
+.siteheader .wrap-all ol, .wrap-all ul {
+    margin-top: 0;
+    margin-bottom: 0;
+    // background-color: yellow;
+}
+
+.profile {
+    float: left;
+    box-sizing: border-box;             // Utan denna blir det inge bra...
+    border: 1px dashed grey;
+    // background-color: beige;
+    .column(@columns/4);
+    height: 52px;
+    // overflow: visible;     // Har ingen effect!
+    height: 100%;
+}
+
+ul.rm-small {
+    // background-color: pink;
+    overflow: auto;
+}
+
+
+/** --------------------------------------------------------------
+ *  Logo images
+ */
+.logo-1 {
+    position: absolute;
+    top: 70px;
+    //left: -140px;
+    left: -220px;
+}
+
+.site-logo-text-icon {
+    img {
+        margin-top: @magicNumber/2;
+        margin-left:  @magicNumber/2;
+        vertical-align: center;
+        border: 1px solid black;
+        -ms-transform: rotate(28deg); /* IE 9 */
+       -webkit-transform: rotate(28deg); /* Safari */
+       transform: rotate(28deg); /* Standard syntax */
+
+    }
+}
+
 
 // Site title (i.e. Anax-flat)
 .site-logo-text {
@@ -49,23 +156,18 @@
     }
 }
 
+
 // För att centrera flash-bilden
 // Denna sektion tillhör två separata klasser: inner-wrap och inner-wrap-flash
 .inner-wrap.inner-wrap-flash {
-    //background-color: gold;
-    text-align: center;
+    .column(@columns/12*8);
+    .push(@columns/6);
 }
 
-.flash-image {
+img.flash-image {
+    box-sizing: border-box;
     border: 8px ridge #D6DCDA;
     border-radius: 8px;
-    padding-right: auto;
-    padding-left: auto;
-}
-
-
-
-.sidebar.sidebar-left.has-sidebar-left.has-sidebar h4 {
-    //width: 237px; från början ändrar till:
-    padding-left: 10px;
+    // height: 222.27px;
+    // vertical-align: bottom;
 }
