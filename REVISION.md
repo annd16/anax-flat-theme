@@ -61,3 +61,7 @@ v2.0.0 (2016-11-16)
 * 7th commit: Publishing kmom04.
 
 ###v4.0.0 (2018-09-07)
+
+* 8th commit: Publishing kmom04, after composer update and missing view/image_aa.tpl.php nightmare.
+
+###v4.0.1 (2018-09-07)
