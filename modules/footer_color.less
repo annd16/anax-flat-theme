@@ -1,0 +1,87 @@
+@import url(footer_basic.less);
+
+/** -------------------------------------------
+/*  footer_color.less
+/**-------------------------------------------*/
+
+// Defining LESS-variables
+// @bgColor: rgba(161, 155, 123, 0.5);
+// @colorHF: rgb(246, 252, 240);
+// // @fColor: rgb(25, 25, 25);
+// @bordColor:  rgb(159, 153, 122);
+
+
+@scope: "footer";
+
+@baseColor1: #ffffff;
+@baseColor2: #000000;
+@bgColor: @baseColor1;
+
+@fColor: @baseColor2;
+@brdColor: none;
+@brdRadius: 10px;
+@listStyleType: circle;
+
+// Defining mixins
+.setColors(@bgColor: @bgColor, @fColor: @fColor) {
+    background-color: @bgColor;
+    color: @fColor;
+}
+
+.border(@width: 1px, @style: dashed, @color:  @brdColor, @brdRadius: 0) {
+    border: @width @style @color;
+    border-radius: @brdRadius;
+}
+
+.outer-wrap-footer {
+    // box-sizing: border-box;
+    // // border: 2px solid purple;
+    .setColors();
+    a {
+        // color: @colorHF;
+        color: @fColor;
+    }
+}
+
+// .footer-column {
+//     ul {
+//         list-style-type: circle;
+//         // background-color: rgb(100, 22, 22);
+//     }
+// }
+
+.site-footer ul {
+    // border: 2px solid purple;
+    //background-color: rgb(200, 22, 22);
+}
+
+.footer-column {
+    // border: 1px dashed @bordColor;
+    .border();
+//     //border: 2px dashed yellow;
+//     // background-color: rgb(205, 99, 33);
+    ul {
+        list-style-type: @listStyleType;
+        // background-color: rgb(100, 22, 22);
+    }
+}
+
+// .column.footer-column {
+//     // margin: 0;
+//     // border: 2px dashed yellow;
+// }
+
+// .columns.footer-column-wrapper {
+//     vertical-align: middle;
+//     // border: 2px solid pink;
+//     overflow: auto;       // Om denna rad skippas, hamnar det som kommer efter de tre footerkolumnerna (copyright, license Cookies etc) att bilda en 4:e kolumn.
+//     margin-bottom: @magicNumber*1.5;
+// }
+
+
+// // THE SITE-FOOTER i.e Copyright, license, Cookies etc
+div.site-footer {
+    ul {
+        list-type: none;
+    }
+}

@@ -1,0 +1,90 @@
+/**
+* Anax Flat theme.
+*/
+// @import url(modules.less);
+@import url(light.less);
+
+
+@bgColor: rgb(30, 227, 48);
+@colorHF: rgb(238, 64, 119);
+@fColor: rgb(48, 11, 226);
+
+// }
+// ************************************************
+// ***              Defining colors             ***
+// ************************************************
+
+// @baseColor1: #852C64;
+// @baseColor2: #3C8D2F;
+// @baseColor3: #AAA838;
+
+// @baseColor1: #AAA838;
+// @baseColor2: darken(#3C8D2F, 85%);
+// @baseColor3: #3C8D2F;
+// @baseColor4: darken(white, 25%);
+// @accentColor1: #852C64;
+
+@baseColor1: #AA8C39;
+@baseColor2: darken(#3C8D2F, 85%);
+@baseColor3: #28774F;
+@baseColor4: darken(white, 25%);
+@accentColor1: #68266F;
+
+@baseColor1: #00F8FF;
+@baseColor2: darken(#3C8D2F, 85%);
+@baseColor3: #CCB014;
+@baseColor4: darken(white, 25%);
+@accentColor1: #FF05AE;
+
+
+@bgColor: @baseColor1;
+@fColor: @baseColor2;
+
+@brdColor: @baseColor1;
+
+
+@maxBgColor: darken(@baseColor1, 15%);
+
+@bgColorHtml: mix(@baseColor1, @baseColor4, 20%);
+@bgColorBody: @baseColor1;
+@bgColorWA: mix(@baseColor1, @baseColor4, 40%);
+@bgColorHeader: darken(@baseColor1, 15%);
+@bgColorMain: darken(mix(@baseColor1, @baseColor4, 20%)), 25%);
+@bgColorSidebar: darken(@baseColor1, 2.5%);
+@bgColorArticle: darken(@baseColor1, 2.5%);
+@bgColorByline: darken(@baseColor1, 2.5%);
+@bgColorToc: @baseColor1;
+@bgColorFooter: darken(@baseColor1, 15%);
+@bgColorBlockSitefooter: darken(@baseColor1, 15%);
+
+@brdColor:  darken(@baseColor1, 25%);
+
+@aLink: darken(@baseColor3, 30%);
+@aVisited: mix(@baseColor3, @baseColor4, 70%);
+@aHover: @accentColor1;
+@aActive: mix(@baseColor3, @baseColor4, 20%);
+
+
+h1, h2, h3, h4 {
+    display: inline-block;
+    padding: 6px 1em;
+    border-radius: 4px;
+    @color1: lighten(@baseColor3, 10%);
+    @color2: darken(white, 25%);
+    background: radial-gradient(@color1 60%, @color2);
+    ::after {
+        content: "\A";
+    }
+    // .setColors(@accentColor1, black);
+}
+
+
+@base: @accentColor1;
+
+article.article {
+  // color: saturate(@base, 80%);
+  color: darken(@base, 40%);
+  // border-color: lighten(@base, 5%);
+  border-color: lighten(@base, 5%);
+  h1, h2, h3, h4 { .box-shadow(0 0 20px, 90%) }    // Hade stor effekt på utseendet på skuggan
+}

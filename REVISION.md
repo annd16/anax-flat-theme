@@ -58,4 +58,6 @@ v2.0.0 (2016-11-16)
 
 ###v3.0.0 (2017-01-21)
 
-* 7th commit: Publishing kmom03.
+* 7th commit: Publishing kmom04.
+
+###v4.0.0 (2018-09-07)

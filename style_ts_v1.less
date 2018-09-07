@@ -1,0 +1,234 @@
+/** -------------------------------------------
+/*  style_ts.less
+/**-------------------------------------------*/
+
+/** -------------------------------------------
+/*  This is the module in which all changes to borders and colors are made
+/**-------------------------------------------*/
+
+// rgba(161, 155, 123, 0.5);
+// rgb(246, 252, 240);
+// rgb(159, 153, 122);
+
+// Defining LESS-variables
+
+@baseColor1: #ffffff;
+@baseColor2: #000000;
+
+@bgColor: @baseColor1;
+@fColor: @baseColor2;
+
+@brdColor: none;
+@brdRadius: 10px;
+
+
+
+@magicNumber: 24px;
+@owm: outer-wrap-main;
+@art: article;
+
+@baseColor1: #ffffff;
+@baseColor2: #000000;
+
+@bgColor: @baseColor1;
+@fColor: @baseColor2;
+
+@brdColor: none;
+@brdRadius: 10px;
+@borderRadius: 8px;
+@brdWidth: 1px;
+
+@bgColor2: rgba(220, 220, 220, 0.3);
+// background-color: rgba(180, 187, 179, 0.3);
+@fColor2: lighten(@fColor, 20%);
+
+// @bgColor3: #D6DCDA;
+@bgColor3: darken(@bgColor, 10%);
+@fColor3: darken(@bgColor, 25%);
+
+
+// Defining mixins
+.border(@width: 1px, @style: dashed, @color:  @brdColor, @brdRadius: none) {
+    border: @width @style @color;
+    border-radius: @brdRadius;
+}
+.border-radius(@brdRadius: none) {
+    border-radius: @brdRadius;
+};
+
+ html {
+     background: url(../img/color-1792501_1280-edit5.jpg) no-repeat center center fixed;
+     -webkit-background-size: cover;
+     -moz-background-size: cover;
+     -o-background-size: cover;
+     background-size: cover;
+     //background-color: #bdd18d;
+     overflow-y: scroll;     /*Visa alltid scrollbaren*/
+ }
+
+
+ .wrap-all {
+       background-color: @bgColor2 !important;;
+        color: @fColor2;
+       .border-radius(@brdRadius);
+ }
+
+// // MAIN AND SIDEBAR (IF PRESENT)
+//
+ .sidebar {
+     background-color: none;
+}
+
+
+// ME-PAGE
+
+.me-image {
+    // border: 6px ridge #D6DCDA;               // Ska flyttas över till style_ts.less
+    .border(6*@brdWidth, ridge);
+    .border-radius(6px);
+    height: @magicNumber*9;
+    width: @magicNumber*9*0.8;
+    // width: 210px;
+    margin-left: @magicNumber/2;
+    float: right;
+}
+
+
+//// ABOUT-PAGE
+
+ .about-image {
+    background-color: @bgColor3;
+    // border: 4px ridge #D6DCDA;           // Ska flyttas över till style_ts.less
+    .border(4*@brdWidth, ridge);
+    .border-radius(4px);
+}
+
+
+// .about-image {
+//     margin-top: (@magicNumber)-4px;
+//     margin-bottom: (@magicNumber)*6;    // Fungerar inte!
+// }
+
+
+ .@{owm} .@{art} {
+    background-color: rgba(162, 121, 187, 0.2);
+}
+
+
+.main {
+    .article {
+        background-color: rgba(180, 187, 179, 0.3);     // Ska flyttas över till style_ts
+        // border: 1px solid rgb(180, 187, 179);
+        border-radius: 10px;
+        // border: 1px dashed rgb(180, 187, 179);       // Ska flyttas över till style_ts
+        .border();
+        // background-color: green;
+        // margin-bottom: (@magicNumber)-1px;
+        margin-bottom: (@magicNumber);
+    }
+}
+
+
+.sidebar-left {
+    // background-color: rgba(180, 187, 179, 0.3);              // Ska flyttas över till style_ts (4 rader)
+    background-color: none;
+    // border: 1px solid rgb(180, 187, 179);
+    .border(@style: solid);
+    .border-radius(10px);
+}
+
+// Innehållsförteckningen i sidebar-left
+// .block.toc.article-toc {
+.block.toc {
+    // border: 1px dashed rgb(180, 187, 179);      // Ska flyttas över till style_ts
+    .border(1px);
+    .border-radius(10px);
+    // background-color: rgba(175, 213, 226, 0.3);
+    // background-color: rgba(234, 238, 149, 0.3);
+    // background-color:rgba(230, 217, 177, 0.3);
+    background-color:rgba(153, 238, 134, 0.3);       // Ska flyttas över till style_ts
+    // rgb(153, 238, 134)
+    // rgb(230, 217, 177)
+}
+
+
+.main.has-sidebar-left {
+    box-sizing: border-box;
+    // border: 1px solid rgb(180, 187, 179);                // Ska flyttas över till style_ts
+    background-color: rgba(180, 187, 179, 0.3);
+    .border(1px);
+    // background-color: green;
+    .article {
+        // border: 1px dashed rgb(180, 187, 179);            // Ska flyttas över till style_ts
+        .border(1px);
+        background-color: rgba(180, 187, 179, 0.3);
+    }
+}
+
+.main.has-sidebar-left .@{art} {
+    // background-color: rgba(162, 121, 187, 0.2);
+}
+
+
+//.main .has-sidebar-right {                // Fungerade inte
+.main.has-sidebar-right {
+    // border: 1px solid rgb(180, 187, 179);             // Ska flyttas över till style_ts
+    .border(1px);
+    // background-color: rgba(180, 187, 179, 0.3);
+    // rgb(175, 213, 226)
+    // rgb(179, 199, 210)
+    .article {
+        // border: 1px dashed rgb(180, 187, 179);            // Ska flyttas över till style_ts
+        .border(1px);
+        background-color: rgba(180, 187, 179, 0.3);
+    }
+}
+
+
+/***************
+/* SIDEBAR-RIGHT
+***************/
+
+.sidebar-right {
+    // border: 1px solid rgb(180, 187, 179);        // Ska flyttas över till style_ts
+    .border(1px);
+    .border-radius(10px);
+    // background-color: red;
+    background-color: rgba(180, 187, 179, 0.3);
+}
+
+.block.toc.article-toc {
+    // border: 1px dashed rgb(180, 187, 179);               // Ska flyttas över till style_ts
+    // border-radius: 10px;
+    .border(1px);
+    .border-radius(0);
+    // background-color: rgba(175, 213, 226, 0.3);
+    background-color: rgba(153, 238, 134, 0.3);
+    // rgb(234, 238, 149)
+}
+
+// BYLINE
+
+.content .byline {
+    background-color: rgba(235, 242, 227, 0.3);
+    // padding-bottom: @magicNumber/2;      // För att få ett mellanrum mellan bilden och bylinens ram.
+    // border: 2px solid #D6DCDA;               // Ska flyttas över till style_ts.less
+    .border(2px);
+    .border-radius(4px);
+}
+
+
+.byline-image {
+    // margin: (@magicNumber)-1 @magicNumber/2 0 @magicNumber/2;
+    border-radius: @brdRadius;
+    // float: left;
+}
+
+
+// div.outer-wrap.outer-wrap-footer {
+//     background-color: rgba(161, 155, 123, 0.5);
+//     color: rgb(246, 252, 240);
+//     a {
+//         color: rgb(246, 252, 240);
+//     }
+// }

@@ -1,3 +1,7 @@
+/** -------------------------------------------
+/*  test.less
+/**-------------------------------------------*/
+
 // Tester på test-sidan
 
 // TEST AV NESTED CONTENT!
@@ -248,6 +252,69 @@ body {
   color: lighten(blue, 20%);
 }
 
+
+// test 171222;
+
+@base: #f938ab;
+
+.box-shadow(@style, @c) when (iscolor(@c)) {
+  -webkit-box-shadow: @style @c;
+  box-shadow:         @style @c;
+}
+
+.box-shadow(@style, @alpha: 50%) when (isnumber(@alpha)) {
+  .box-shadow(@style, rgba(0, 0, 0, @alpha));
+}
+
+.box {
+  color: saturate(@base, 5%);
+  border-color: lighten(@base, 30%);
+  div { .box-shadow(0 0 5px, 30%) }
+}
+
+
+// test 171222;
+
+
+// Defining LESS-variables
+
+@baseColor1: #ffffff;
+@baseColor2: #000000;
+@baseColor3: #ffffff;
+@accentColor1: #00CA00;
+
+@base: #f938ab;
+
+.box-shadow(@style, @c) when (iscolor(@c)) {
+  -webkit-box-shadow: @style @c;
+  box-shadow:         @style @c;
+}
+.box-shadow(@style, @alpha: 50%) when (isnumber(@alpha)) {
+  .box-shadow(@style, rgba(0, 0, 0, @alpha));
+}
+
+.box {
+  color: saturate(@base, 20%);
+  border-color: lighten(@base, 30%);
+  div { .box-shadow(0 0 5px, 30%) }
+}
+
+.route-test article.article {
+  // color: saturate(@base, 80%);
+  color: darken(@accentColor1, 40%);
+  // border-color: lighten(@base, 5%);
+  border-color: lighten(@accentColor1, 5%);
+  h1, h2, h3, h4 { .box-shadow(0 0 20px, 90%) }    // Hade stor effekt på utseendet på skuggan
+}
+
+.route-test {
+    & h1, & h2, & h3, & h4 {
+    padding: 6px 1em;
+    border-radius: 4px;
+    background: radial-gradient(@accentColor1, white);
+    // .setColors(@baseColor1, @accentColor1);
+    }
+}
 
 // .generate-columns(@n, @i: 1) when (@i =< @n) {
 //   .column-@{i} {

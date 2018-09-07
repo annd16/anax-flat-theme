@@ -1,0 +1,120 @@
+/** -------------------------------------------
+/*  footer_basic.less
+/**-------------------------------------------*/
+
+
+// // Defining LESS-variables
+// @bgColor: rgba(161, 155, 123, 0.5);
+// @colorHF: rgb(246, 252, 240);
+// // @fColor: rgb(25, 25, 25);
+// @bordColor:  rgb(159, 153, 122);
+
+div.footer {
+    overflow: auto;             // För att div.footer ska omsluta alla sina barnelement
+}
+.outer-wrap-footer {
+    box-sizing: border-box;
+    // border: 2px solid purple;
+    // background-color: @bgColor;
+    // color: @colorHF;
+    margin-bottom: 1em;
+    // a {
+    //     // color: @colorHF;
+    // }
+}
+
+.footer-column {
+    box-sizing: border-box;
+    // border: 1px dashed @bordColor;
+    // border-radius: 4px;
+    padding-top: 0;
+    padding-left: 2em;
+    padding-right: 0.5em;
+    //border: 2px dashed yellow;
+    .column(@columns/3);
+    // background-color: rgb(205, 99, 33);
+    vertical-align: middle;     //Fungerar inte!
+    ul {
+        margin: 0;
+        padding-left: 1.2em;
+        list-style-type: circle;
+        // background-color: rgb(100, 22, 22);
+        width: 80%;
+    }
+}
+
+
+div.footer-column-x {
+    width: 100%;
+    & p {
+    box-sizing: border-box;
+    // width: 95%;
+    // background-color: green;
+}
+    &.footer-column-2.block {
+        // border: 2px solid black !important;
+        // width: 100%;
+    }
+}
+
+
+.site-footer ul {
+    box-sizing: border-box;
+    // border: 2px solid purple;
+    //background-color: rgb(200, 22, 22);
+    //margin: auto;
+    padding-left: 0 !important;
+}
+
+
+// De tre footer-kolumnerna
+// div.column.footer-column {
+//     // margin: 0;
+//     // border: 2px dashed yellow;
+// }
+
+.columns.footer-column-wrapper {
+    vertical-align: middle;
+    // border: 2px solid pink;
+    // Om denna rad skippas, hamnar det som kommer efter de tre footerkolumnerna
+    // (copyright, license Cookies etc) att bilda en 4:e kolumn.
+    // overflow: auto;
+    margin-bottom: @magicNumber*1.5;
+}
+
+// textarea {
+//     .pull(2);
+//     .column(@columns/3);
+//     font-family: sans-serif;
+// }
+// THE SITE-FOOTER i.e Copyright, license, Cookies etc
+div.site-footer {
+    .column(@columns);
+    // // Test 180907
+    // .column(@columns/3);
+    // .push(2);
+    text-align: center;
+
+    ul {
+        margin-top: 0;
+        margin-bottom: @magicNumber;
+        padding-left: 0;
+        padding-right: 0;
+        list-type: none;
+    }
+
+    li {
+        display: inline;
+    }
+}
+
+div.site-footer {
+    ul {
+        // padding-top: (@magicNumber/2)-2px;
+    }
+    p {
+        // padding-top: (@magicNumber/2);
+            margin-top: 0;
+            margin-bottom: @magicNumber;
+    }
+}

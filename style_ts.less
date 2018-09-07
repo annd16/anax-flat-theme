@@ -1,0 +1,391 @@
+/** -------------------------------------------
+/*  style_ts.less
+/**-------------------------------------------*/
+
+/** -------------------------------------------
+/*  This is the module in which all changes to borders and colors are made
+/**-------------------------------------------*/
+
+@import (reference) url(grid-float.less);
+@import (reference) url(grid-helpers.less);
+@import url(layout_ts.less);     // Blev jättekonstigt när jag försökte importera denna via referens!!
+@import (reference) url(modules_typography.less);
+
+
+
+// rgba(161, 155, 123, 0.5);
+// rgb(246, 252, 240);
+// rgb(159, 153, 122);
+// #e8e8e8
+
+// Defining LESS-variables
+
+@baseColor1: #ffffff;
+@baseColor2: #000000;
+@baseColor3: #ffffff;
+@accentColor1: #ffffff;
+
+@bgColor: @baseColor1;
+@fColor: @baseColor2;
+
+@brdColor: @baseColor1;
+@brdRadius: 10px;
+@brdWidth: 1px;
+
+
+@magicNumber: 24px;
+
+// Förkortningar
+@owm: outer-wrap-main;
+@art: article;
+@hsbl: has-sidebar-left;
+@hsbr: has-sidebar-left;
+@hsb: has-sidebar;
+@sb: sidebar;
+
+@bgColor2: rgba(220, 220, 220, 0.3);
+// background-color: rgba(180, 187, 179, 0.3);
+@fColor2: lighten(@fColor, 20%);
+
+// @bgColor3: #D6DCDA;
+@bgColor3: darken(@bgColor, 10%);
+@fColor3: darken(@bgColor, 25%);
+
+@htmlBgImage: "../img/color-1792501_1280-edit5.jpg";
+// @htmlBgImage: "";
+@htmlBgColor: none;
+
+
+// Defining mixins
+.setColors(@bgColor: @bgColor; @fColor: @fColor) {
+    background-color: @bgColor;
+    color: @fColor;
+}
+
+.border(@width: 1px, @style: dashed, @color:  @brdColor, @brdRadius: 0) {
+    border: @width @style @color;
+    border-radius: @brdRadius;
+}
+
+.border-radius(@brdRadius: 0) {
+    border-radius: @brdRadius;
+};
+
+
+// ME-PAGE
+
+.me-image {
+    // border: 6px ridge #D6DCDA;
+    // .border(@width: 0.6*@brdWidth; @style: ridge; @color:  @brdColor; @brdRadius: 6*@brdRadius);
+    height: @magicNumber*9;
+    width: @magicNumber*9*0.8;
+    // width: 210px;
+    margin-left: @magicNumber/2;
+    float: right;
+}
+
+
+// ************************************************
+// ***              Analysis pages              ***
+// ************************************************
+
+.analysis {
+    .setColors(@bgColor: @bgColor; @fColor: @fColor);
+    .border(@width: 1px; @style: dashed; @color:  @baseColor2; @brdRadius: 0);
+}
+
+section.table {
+    display: table;
+    border: 2px solid black;
+}
+
+
+div.th {
+    border: 2px solid black;
+    display: table-header-group;
+}
+
+div.tr {
+    display: table-row;
+    &.inline {
+        display: inline;
+    }
+}
+
+.td {
+    display: table-cell;
+    width: 1em;
+    height: 1em;
+    .setColors(@bgColor: @bgColor; @fColor: @fColor);
+    .border(@width: 1px; @style: dashed; @color:  @baseColor2; @brdRadius: 0);
+    #id11& {
+            .setColors(@bgColor: #EAECEB; @fColor: @fColor);
+        }
+    #id12& {
+            .setColors(@bgColor: #FFFFFF; @fColor: @fColor);
+        }
+    #id13& {
+            .setColors(@bgColor: #0C3256; @fColor: @fColor);
+        }
+    #id14& {
+            .setColors(@bgColor: #3C72AD; @fColor: @fColor);
+        }
+    #id15& {
+            .setColors(@bgColor: #FFCC33; @fColor: @fColor);
+        }
+    #id16& {
+            .setColors(@bgColor: #339933; @fColor: @fColor);
+        }
+    #id1A& {
+            .setColors(@bgColor: #FFCC33; @fColor: @fColor);
+        }
+    #id21& {
+            .setColors(@bgColor: #FFFFFF; @fColor: @fColor);
+    }
+    #id22& {
+        .setColors(@bgColor: #F3F0EB; @fColor: @fColor);
+    }
+    #id23& {
+        .setColors(@bgColor: #A02971; @fColor: @fColor);
+    }
+    #id24& {
+        .setColors(@bgColor: #F5E9F0; @fColor: @fColor);
+    }
+    #id25& {
+        .setColors(@bgColor: #EB1F07; @fColor: @fColor);
+    }
+    #id26& {
+        .setColors(@bgColor: #EB1F07; @fColor: @fColor);
+    }
+    #id1A& {
+            .setColors(@bgColor: #FFCC33; @fColor: @fColor);
+        }
+    #id31& {
+            .setColors(@bgColor: #BCC4CA; @fColor: @fColor);
+    }
+    #id32& {
+        .setColors(@bgColor: #59575C; @fColor: @fColor);
+    }
+    #id33& {
+        .setColors(@bgColor: #F9F8F1; @fColor: @fColor);
+    }
+    #id34& {
+        .setColors(@bgColor: #E6E6DF; @fColor: @fColor);
+    }
+    #id35& {
+        .setColors(@bgColor: #A6A69E; @fColor: @fColor);
+    }
+    #id36& {
+        .setColors(@bgColor: #F9F8F8; @fColor: @fColor);
+    }
+    // #id41& {
+    //     .setColors(@bgColor: #F9F8F1; @fColor: @fColor);
+    // }
+    // #id42& {
+    //     .setColors(@bgColor: #E4E4DD; @fColor: @fColor);
+    // }
+    // #id43& {
+    //     .setColors(@bgColor: #585959; @fColor: @fColor);
+    // }
+    // #id44& {
+    //     .setColors(@bgColor: #A2A29B; @fColor: @fColor);
+    // }
+    // #id45& {
+    //     .setColors(@bgColor: #93938C; @fColor: @fColor);
+    // }
+    // #id46& {
+    //     .setColors(@bgColor: #F9F8F8; @fColor: @fColor);
+    // }
+}
+
+// ************************************************
+// ***              Defining colors             ***
+// ************************************************
+
+@maxBgColor: darken(@baseColor1, 15%);
+
+@bgColorHtml: darken(@baseColor1, 10%);
+@bgColorBody: @baseColor1;
+@bgColorWA: darken(@baseColor1, 5%);
+@bgColorHeader: darken(@baseColor1, 15%);
+@bgColorMain: darken(@baseColor1, 10%);
+@bgColorSidebar: darken(@baseColor1, 2.5%);
+@bgColorArticle: darken(@baseColor1, 2.5%);
+@bgColorByline: darken(@baseColor1, 2.5%);
+@bgColorToc: @baseColor1;
+@bgColorFooter: darken(@baseColor1, 15%);
+@bgColorBlockSitefooter: darken(@baseColor1, 15%);
+
+@brdColor:  darken(@baseColor1, 25%);
+
+@aLink: lighten(@baseColor2, 10%);
+@aVisited: lighten(@baseColor2, 20%);
+@aHover: lighten(@baseColor2, 40%);
+@aActive: @baseColor2;
+
+
+
+
+
+html {
+    .setColors(@bgColorHtml, @baseColor2);
+    .border(@width: 1px; @style: solid; @color: @brdColor; @brdRadius: 10px);
+}
+
+body {
+    .setColors(@bgColorBody, @baseColor2);
+    .border(@width: 1px; @style: solid; @color:  @brdColor; @brdRadius: 10px);
+}
+
+.wrap-all {
+    .setColors(@bgColorWA, @baseColor2);
+    .border(@width: 1px; @style: solid; @color:  @brdColor; @brdRadius: 10px);
+}
+
+header.site-header {
+    .setColors(@bgColorHeader, @baseColor2);
+    // .border(@width: 1px; @style: solid; @color:  @brdColor; @brdRadius: 10px);
+}
+
+main {
+    .setColors(@bgColorMain, @baseColor2);
+    .border(@width: 1px; @style: solid; @color:  @brdColor; @brdRadius: 10px);
+}
+
+// 180905
+.byline {
+    .setColors(@bgColorByline, @baseColor2);
+    .border(@width: 1px; @style: solid; @color:  @brdColor; @brdRadius: 10px);
+}
+
+// .@{owm} {
+//     .setColors(orange, @baseColor2);
+// }
+
+
+// main.main {
+//     &.has-sidebar-left.@{hsb} {
+//         .setColors(@bgColorMain, @baseColor2);
+//         .border(@width: 1px; @style: solid; @color:  black; @brdRadius: 10px);
+//     }
+//     &.has-sidebar-right.@{hsb} {
+//         .setColors(@bgColorMain, @baseColor2);
+//         .border(@width: 1px; @style: solid; @color:  black; @brdRadius: 10px);
+//     }
+// }
+
+
+main.main {
+    &.@{hsb} {
+        .setColors(@bgColorMain, @baseColor2);
+        .border(@width: 1px; @style: solid; @color:  @brdColor; @brdRadius: 10px);
+    }
+}
+
+.sidebar-left {
+    .setColors(@bgColorSidebar, @baseColor2);
+    .border(@width: 1px; @style: solid; @color:  @brdColor; @brdRadius: 10px);
+}
+
+// div.@{sb}.sidebar-left.@{hsbl}.@{hsb} {
+//     .setColors(beige, @baseColor2);
+//     .border(@width: 1px; @style: solid; @color:  black; @brdRadius: 10px);
+// }
+
+// div.@{sb}.sidebar-right.@{hsbr}.@{hsb} {
+//     .setColors(beige, @baseColor2);
+//     .border(@width: 1px; @style: solid; @color:  black; @brdRadius: 10px);
+// }
+
+.sidebar-right {
+    .setColors(@bgColorSidebar, @baseColor2);
+    .border(@width: 1px; @style: solid; @color:@brdColor; @brdRadius: 10px);
+}
+
+.block.toc.article-toc {
+    .setColors(@bgColor: @bgColor, @fColor: @fColor);
+    .border(@width: 1px; @style: dashed; @color:  @brdColor; @brdRadius: 10px);
+}
+
+.@{owm} .@{art} {
+    .setColors(@bgColorArticle, @baseColor2);
+    .border(@width: 1px; @style: solid; @color:  @brdColor; @brdRadius: 10px);
+}
+
+// .content .byline {
+//     .setColors(@bgColorByline, @baseColor2);
+//     .border(@width: 2px; @style: solid; @color:  @brdColor; @brdRadius: 4px);
+//     // // test 180906
+//     // min-height: 50px;
+//     // background-color: pink;    .byline blev skär inte .content . byline
+// }
+
+.content.byline {
+    .setColors(@bgColorByline, @baseColor2);
+    // .border(@width: 2px; @style: solid; @color:  @brdColor; @brdRadius: 4px);
+    // test 180906
+    // background-color: pink;
+}
+
+
+.byline {
+    .setColors(@bgColorByline, @baseColor2);
+    // .border(@width: 2px; @style: solid; @color:  @brdColor; @brdRadius: 4px);
+    // test 180906
+    // background-color: green;    // .byline blev skär inte .content . byline
+}
+
+div.footer {
+    .setColors(@bgColorFooter, @baseColor2);
+    .border(@width: 1px; @style: solid; @color:  @brdColor; @brdRadius: 10px);
+}
+
+.block .sitefooter {
+    .setColors(@bgColorFooter, @baseColor2);
+    .border(@width: 1px; @style: solid; @color: @brdColor; @brdRadius: 10px);
+}
+
+
+// Pictures
+
+// .flash-image {
+//     .border(@width: 1px; @style: solid; @color:  @brdColor; @brdRadius: 10px);
+// }
+
+.me-image {
+    .border(@width: 1px; @style: solid; @color:  @brdColor; @brdRadius: 10px);
+}
+
+.byline-image {
+    .border(@width: 1px; @style: solid; @color:  @brdColor; @brdRadius: 10px);
+}
+
+.about-image {
+    .border(@width: 1px; @style: solid; @color:  @brdColor; @brdRadius: 10px);
+}
+
+// links
+
+a {
+    &:link {
+        color: @aLink !important;
+    }
+    &:visited {
+        color: @aVisited !important;
+    }
+    &:hover {
+        color: @aHover !important;
+    }
+    &:active {
+        color: @aActive !important;
+    }
+}
+
+
+// div.outer-wrap.outer-wrap-footer {
+//     background-color: rgba(161, 155, 123, 0.5);
+//     color: rgb(246, 252, 240);
+//     a {
+//         color: rgb(246, 252, 240);
+//     }
+// }

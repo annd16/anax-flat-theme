@@ -1,19 +1,48 @@
 /** -------------------------------------------
-/*  header.less
+/*  header_basic.less
 /**-------------------------------------------*/
+
+// rgba(161, 155, 123, 0.5);
+// rgb(246, 252, 240);
+// rgb(159, 153, 122);
+
+
+// Defining LESS-variables
+
+@scope: "header";
+
+@baseColor1: #ffffff;
+@baseColor2: #000000;
+
+@bgColor: @baseColor1;
+@fColor: @baseColor2;
+
+@bgColorHeader: darken(@baseColor1, 15%);
+
+@brdColor: @bgColorHeader;
+@brdRadius: 10px;
+@ow: outer-wrap;
+@iw: inner-wrap;
+
+
+// Defining mixins
+.border(@width: 1px, @style: dashed, @color:  @brdColor, @brdRadius: 0) {
+    border: @width @style @color;
+    border-radius: @brdRadius;
+}
 
 // Modifiering av den responsiva knappmenyn
 // (som den defineras i responsive-menu.less)
 
 @maxBgColor:                #DBCDBB;
 
-.rm-default {
-
-    // The link of the menu item
-    a {
-        padding: @magicNumber/2;
-    }
-}
+// .rm-default {
+//
+//     // The link of the menu item
+//     a {
+//         padding: 0 !important;
+//     }
+// }
 
 .rm-max {
     // Customize the mobile menu, hide by default
@@ -23,12 +52,18 @@
      }
 }
 
+
 // Size of max navbar button
 .rm-max .rm-small .rm-button {
     font-size: 2em;
 }
 
 @maxButtonFontSize: 2em;
+
+//
+// .rm-small-wrapper {
+//     overflow: auto;;
+// }
 
 // Style navbar
 
@@ -40,30 +75,38 @@
     // font-family: "robotoregular";
 }
 
-.rm-desktop li {
-    background-color: transparent;
-}
-
 @navbarItemBgColor: transparent;
 
+// .outer-wrap.outer-wrap-header {
+//     box-sizing: border-box;
+//     .border(2px, solid, black);
+//     margin-bottom: @magicNumber/2;         //För att få avstånd mellan site-headern och flash-bilden.
+// }
 
 .site-header {
     position: relative;
     box-sizing: border-box;
-    border: 2px solid grey;
-    background-color: rgba(161, 155, 123, 0.5);
-    color: rgb(246, 252, 240);
+    // border: 2px solid @bordColor;
+    // .border(2px);        // Bortkommenterat 180906
+    // background-color: @bgColor;
+    // color: @colorHF;
     margin-bottom: @magicNumber/2;         //För att få avstånd mellan site-headern och flash-bilden.
-    overflow: auto; // Krävdes för att site-headern skulle omsluta sina "barn-element"
-    height: (@magicNumber*3);
+    overflow: auto;     // 171220
+    // height: (@magicNumber*3);
+}
 
+
+header.site-header {
+    // overflow: auto;         // 171220
+    // margin-bottom: @magicNumber/2;         //För att få avstånd mellan site-headern och flash-bilden.
 }
 
 // Size each item in the header
 .site-logo-text {
     float: left;
     box-sizing: border-box;
-    border: 1px dashed grey;
+    border: 1px dashed @brdColor;
+    // .border();
     // background-color: red;
     .column(@columns/4);
     font-family: sans-serif;
@@ -74,9 +117,10 @@
 .navbar2 {
     float: left;
     box-sizing: border-box;
-    border: 1px dashed grey;
-    // background-color: blue;
-    .column(@columns/2);
+    border: 1px dashed @brdColor;
+    // .border();
+    // .column(@columns/2);
+    .column(@columns/12*8);
     height: 100%;
 }
 
@@ -84,6 +128,10 @@
     margin-top: 0;
     margin-bottom: 0;
     height: 100%;
+}
+
+ul.rm-default.rm-desktop {
+    margin: @magicNumber/6;          // 171220
 }
 
 // div.outer-wrap.outer-wrap-header {
@@ -107,9 +155,11 @@
 .profile {
     float: left;
     box-sizing: border-box;             // Utan denna blir det inge bra...
-    border: 1px dashed grey;
+    border: 1px dashed @brdColor;
+    .border();
     // background-color: beige;
-    .column(@columns/4);
+    // .column(@columns/4);
+    .column(@columns/6);
     height: 52px;
     // overflow: visible;     // Har ingen effect!
     height: 100%;
@@ -117,7 +167,7 @@
 
 ul.rm-small {
     // background-color: pink;
-    overflow: auto;
+    // overflow: auto;
 }
 
 
@@ -136,7 +186,8 @@ ul.rm-small {
         margin-top: @magicNumber/2;
         margin-left:  @magicNumber/2;
         vertical-align: center;
-        border: 1px solid black;
+        // border: 1px solid black;
+        .border();
         -ms-transform: rotate(28deg); /* IE 9 */
        -webkit-transform: rotate(28deg); /* Safari */
        transform: rotate(28deg); /* Standard syntax */
@@ -147,25 +198,24 @@ ul.rm-small {
 
 // Site title (i.e. Anax-flat)
 .site-logo-text {
+    font-family: sans-serif;
     font-size: 2em;
-
     a {
         text-decoration: none;
     }
 }
 
 
-// För att centrera flash-bilden
-// Denna sektion tillhör två separata klasser: inner-wrap och inner-wrap-flash
-.inner-wrap.inner-wrap-flash {
-    .column(@columns/12*8);
-    .push(@columns/6);
-}
+// // För att centrera flash-bilden
+// // Denna sektion tillhör två separata klasser: inner-wrap och inner-wrap-flash
+// .@{iw}.inner-wrap-flash {
+//     .column(@columns/12*8);
+//     .push(@columns/6);
+// }
 
 img.flash-image {
     box-sizing: border-box;
-    border: 8px ridge #D6DCDA;
-    border-radius: 8px;
-    // height: 222.27px;
-    // vertical-align: bottom;
+    // border: 8px ridge #D6DCDA;
+    // border-radius: 8px;
+    .border(8px);
 }

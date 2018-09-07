@@ -1,4 +1,36 @@
-// grid-helpers.less
+/** -------------------------------------------
+/*  grid-helpers.less
+/**-------------------------------------------*/
+@baseColor1: #ffffff;
+@baseColor2: #000000;
+@baseColor3: #ffffff;
+@accentColor1: #ffffff;
+
+@bodyBgColor: rgba(224, 231, 188, 0.51);
+@waBgColor: rgba(231, 188, 218, 0.51);
+// @bylineBgColor: rgba(241, 241, 241, 0.51);
+
+//
+// @hgridBodyBgColor: fade((@bodyBgColor), 40);
+// @hgridWaBgColor: fade((@waBgColor), 40);
+
+
+
+@bgColorBody: rgb(224, 231, 188);
+@bgColorHeader: darken(@baseColor1, 15%);
+@bgColorWA: rgb(231, 188, 218);
+@bgColorByline: darken(@baseColor1, 5%);
+@bgColorFooter: darken(@baseColor1, 15%);
+
+@hgridBgColorBody: fade((@bgColorBody), 40);
+@hgridBgColorWA: fade((@bgColorWA), 40);
+@hgridBgColorHeader: fade((@bgColorHeader), 40);
+@hgridBgColorByline: fade((@bgColorByline), 40);
+@hgridBgColorFooter: fade((@bgColorFooter), 40);
+
+
+@gridImage: "../img/grid/grid940x12x60x20-nomargin.png";
+
 // Med hjälp av denna modul ska det vertikala gridet visas.
 
 /**
@@ -21,11 +53,99 @@
 }
 
 
+// .showHorisontalGrid(@maxWidth: 1100px) {
+//     //Måste vara background-image här och man vill inte ha repeat-y eller den efterföljande texten!
+//     // background-image: url(../img/grid/horisontal-grid-24.png);
+//     background-image: url(../img/grid/horisontal-grid-24.png);
+// }
+
 .showHorisontalGrid(@maxWidth: 1100px) {
     //Måste vara background-image här och man vill inte ha repeat-y eller den efterföljande texten!
     // background-image: url(../img/grid/horisontal-grid-24.png);
     background-image: url(../img/grid/horisontal-grid-24.png);
+    .wrap-all {
+        // .setColors(@bgColor: @hgridBodyBgColor; @fColor: @fColor);
+        .setColors(@bgColor: @hgridBgColorBody; @fColor: @fColor);
+    }
 }
+
+
+
+// .showHorisontalGrid(@maxWidth: 1100px) {
+//     //Måste vara background-image här och man vill inte ha repeat-y eller den efterföljande texten!
+//     // background-image: url(../img/grid/horisontal-grid-24.png);
+//     background-image: url(../img/grid/horisontal-grid-24.png);
+//     body {
+//         html.hgrid & {      // & = parent selector (fungerar som omvänd p-selector i detta fallet) html.grid följt av .innerwrap
+//             //    .setColors(@bgColor: @bodyBgColor; @fColor: @fColor);
+//             .setColors(@bgColor: @hgridBodyBgColor; @fColor: @fColor);
+//             // fade(hsl(90, 90%, 50%), 10%);
+//             //    .showHorisontalGrid(@gridWidth);
+//             //    border: 5px solid black;
+//         }
+//     .wrap-all {
+//         html.hgrid & {      // & = parent selector (fungerar som omvänd p-selector i detta fallet) html.grid följt av .wrap-all
+//         //    .setColors(@bgColor: @hgridWaBgColor; @fColor: @fColor);
+//         .setColors(@bgColor: @hgridWaBgColor; @fColor: @fColor) !important;
+//         // fade(hsl(90, 90%, 50%), 10%);
+//         //    .showHorisontalGrid(@gridWidth);
+//         //    border: 5px solid black;
+//         }
+//     }
+//     }
+// }
+
+
+.showHorisontalGrid2(@maxWidth: 1100px) {
+    //Måste vara background-image här och man vill inte ha repeat-y eller den efterföljande texten!
+    // background-image: url(../img/grid/horisontal-grid-24.png);
+    background-image: url(../img/grid/horisontal-grid-24-edit2.png);
+    // body {
+        html.hgrid & {      // & = parent selector (fungerar som omvänd p-selector i detta fallet) html.grid följt av .innerwrap
+            //    .setColors(@bgColor: @bodyBgColor; @fColor: @fColor);
+            // .setColors(@bgColor: @hgridBodyBgColor; @fColor: @fColor);
+            .setColors(@bgColor: @hgridBgColorBody; @fColor: @fColor);
+            // fade(hsl(90, 90%, 50%), 10%);
+            //    .showHorisontalGrid(@gridWidth);
+            //    border: 5px solid black;
+        }
+    // .wrap-all {
+        html.hgrid & .wrap-all {      // & = parent selector (fungerar som omvänd p-selector i detta fallet) html.grid följt av .innerwrap
+            //    .setColors(@bgColor: @hgridWaBgColor; @fColor: @fColor);
+            // .setColors(@bgColor: @hgridWaBgColor; @fColor: @fColor) !important;
+            .setColors(@bgColor: @hgridBgColorBody; @fColor: @fColor) !important;
+            // fade(hsl(90, 90%, 50%), 10%);
+            //    .showHorisontalGrid(@gridWidth);
+            //    border: 5px solid black;
+        }
+        html.hgrid & .site-header {
+            .setColors(@bgColor: @hgridBgColorHeader; @fColor: @fColor) !important;;
+        }
+        html.hgrid & main {
+            .setColors(@bgColor: @hgridBgColorFooter; @fColor: @fColor) !important;;
+        }
+        html.hgrid & article {
+            .setColors(@bgColor: @hgridBgColorFooter; @fColor: @fColor) !important;;
+        }
+        html.hgrid & .sidebar {
+            .setColors(@bgColor: @hgridBgColorFooter; @fColor: @fColor) !important;;
+        }
+        html.hgrid & .block.toc.article-toc {
+            .setColors(@bgColor: @hgridBgColorFooter; @fColor: @fColor) !important;;
+        }
+        // 180905 För att få bakgrunden till bylinen transpaent också vid ?hgrid
+        html.hgrid & .byline {
+            .setColors(@bgColor: @hgridBgColorFooter; @fColor: @fColor) !important;;
+        }
+        html.hgrid & .outer-wrap-footer {
+            .setColors(@bgColor: @hgridBgColorFooter; @fColor: @fColor) !important;;
+        }
+        html.hgrid & div.footer {
+            .setColors(@bgColor: @hgridBgColorFooter; @fColor: @fColor) !important;;
+        }
+    }
+    // }
+// }
 
 
 // The variable interpolation is a process of evaluating an expression or literal containing one or more variables,

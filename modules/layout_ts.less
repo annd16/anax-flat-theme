@@ -1,0 +1,879 @@
+/** -------------------------------------------
+/*  layout_ts.less
+/**-------------------------------------------*/
+
+@import url(grid.less);
+@import url(grid-helpers.less);
+@import url(grid-float.less);
+@import url(modules_typography.less);
+
+
+// 180906 ==> hände inget vad jag kunde se
+body {
+    .font();
+}
+// body {
+// overflow: visible;  // Om overflow: hidden försvinner förvisso den horisontella
+// // scrollbaren men responsiviteten (media-querisarna fungerar inte som de ska!)
+// }
+
+// @htmlBgImage: "../img/color-1792501_1280-edit5.jpg";
+// // @htmlBgImage: "";
+// @htmlBgColor: none;
+//
+// .showHtmlBgPicture(@htmlBgImage) {
+//     // Variable interpolation in a string:
+//     background: url("@{htmlBgImage}") no-repeat fixed center center;
+//     background-size: 100% auto;
+//     -webkit-background-size: cover;
+//     -moz-background-size: cover;
+//     -o-background-size: cover;
+//     background-size: cover;
+//     // margin-left: auto;           //Tas bort enl video 307
+//     // margin-right: auto;
+// }
+
+ // html {
+ //    .showHtmlBgPicture(@htmlBgImage);
+ //    // .setColors(@bgColor: @bgColor, @fColor: @fColor)   // If you don't want a background picture
+ // }
+
+// Det är i denna fil som stylingen av Anax-Flat ska ske
+// (enligt det valda gridet).
+
+// @bodyBgColor: rgba(212, 238, 79, 0.1);
+@bodyBgColor: rgba(224, 231, 188, 0.51);
+@waBgColor: rgba(231, 188, 218, 0.51);
+@hgridBodyBgColor: fade((@bodyBgColor), 40);
+@hgridWaBgColor: fade((@waBgColor), 40);
+
+
+
+// DEFINING "LESS-VARIABLES"
+ @owm: outer-wrap-main;
+ @art: article;
+ @brdWidth: 1px;
+ @waBgColor: rgba(255, 255, 255, 0.5);
+ @waFColor: black;
+
+ // Defining mixins
+
+ .setColors(@bgColor: @bgColor; @fColor: @fColor) {
+     background-color: @bgColor;
+     color: @fColor;
+ }
+
+ .border(@width: 1px, @style: dashed, @color: @bgColor) {
+     border: @width @style @color;
+ }
+ .border-radius(@brdRadius: 0) {
+     border-radius: @brdRadius;
+ };
+
+// 20171125
+html {
+    overflow-y: auto;
+}
+
+// Omstuvning av ett antal wrap-all-klasser
+
+ // .wrap-all {
+ //    box-sizing: border-box;          // Avkommenterar denna rad 20171124!!
+ //    margin: 0 auto;
+ //    // border-radius: 10px;             //Ska över till style_ts.less
+ //    padding-left: 2%;
+ //    padding-right: 2%;
+ //    padding-bottom: 1em;
+ //    max-width: 960px;
+ //    // background-color: rgba(220, 220, 220, 0.3) !important;       //Ska över till style_ts.less
+ //    overflow: visible;   // För att inte få flash-bilden att sticka ut när man förminskar sidan. Om auto får man en scrollbar!
+ // }
+
+
+//  .wrap-all p {
+//     box-sizing: border-box;
+//     // margin-top: @magicNumber/2;
+//     margin-bottom: @magicNumber/2;
+//  }
+//
+//
+//  .wrap-all ul {
+//     padding-left: 0;
+//  }
+//
+// .wrap-all {       // För att få elementen att hamna rätt på det verikala och det horisontella gridet.
+//     padding: 0;
+//     // padding-left: 3em;
+// }
+
+.wrap-all {
+   box-sizing: border-box;          // Avkommenterar denna rad 20171124!!
+   margin: 0 auto;
+   // border-radius: 10px;          //Ska över till style_ts.less
+   .border-radius(0);
+   padding-left: 2%;
+   padding-right: 2%;
+   padding-bottom: 1em;
+   max-width: 960px;
+   // background-color: rgba(220, 220, 220, 0.3) !important;       //Ska över till style_ts.less
+   // overflow: visible;   // För att inte få flash-bilden att sticka ut när man förminskar sidan. Om auto får man en scrollbar!
+   overflow: auto;   // För att inte wrap-all ska följa resten av elementen vid förminskning av ytan, men leder till att flash-bilden och annat sticker ut åt höger!
+   p {
+       box-sizing: border-box;
+       // margin-top: @magicNumber/2;
+       margin-bottom: @magicNumber/2;
+   }
+   ul {
+       padding-left: 0;
+   }
+}
+
+.wrap-all {       // För att få elementen att hamna rätt på det verikala och det horisontella gridet.
+   padding: 0;
+   // padding-left: 3em;
+// .setColors(@bgColor: @waBgColor, @fColor: @waFColor);
+// .border(@width: 1px; @style: dashed; @color:  @brdColor; @brdRadius: none);
+}
+
+
+
+div.outer-wrap.outer-wrap-flash {
+    overflow: visible;
+    // margin-bottom:  @magicNumber*3;
+}
+
+.inner-wrap-flash .row {
+    box-sizing: border-box;
+    // background-color: turquoise;
+    // height: 229px;          // För att texten i breadcrumb ska ligga på h-gridet vid ändring av sidans storlek!
+    height: @magicNumber*10;          // För att texten i breadcrumb ska ligga på h-gridet vid ändring av sidans storlek!
+    margin-bottom: @magicNumber/2;
+}
+
+div.outer-wrap.outer-wrap-breadcrumb {
+    // overflow: visible;
+    // margin-bottom:  @magicNumber*3;
+}
+
+
+// ***** SHOW THE GRIDS  *****//
+
+@gridWidth: 960px;
+@gridWidth2: 100%;
+
+// Horisontal Grid
+
+
+body {
+         .container();
+         max-width: @gridWidth;
+         .showHorisontalGrid2(@gridWidth);
+}
+
+// // Modifiering enligt video 313 (men omgjord för att ?hgrid ska fungera)
+// body {
+//          .grid();
+//         //  .setColors(@bgColor: @bodyBgColor; @fColor: @fColor);  // Wrap-all blir gul (täcker över grid-bilden)
+//          max-width: @gridWidth;
+//          html.hgrid & {      // & = parent selector (fungerar som omvänd p-selector i detta fallet) html.grid följt av .innerwrap
+//             // .setColors(@bgColor: @bodyBgColor; @fColor: @fColor);
+//             .showHorisontalGrid(@gridWidth);
+//             // border: 5px solid black;
+//          }
+//         //  .showHorisontalGrid(@gridWidth);
+// }
+
+// För att h-gridet alltid ska synas på typography-sidan:
+body.route-typography {
+    //  .container();
+     .grid();
+     max-width: @gridWidth;
+     .showHorisontalGrid(@gridWidth);
+ }
+
+
+// //Om man vill att h-grid ska synas på alla sidor hela tiden.
+// body {
+//          .grid();
+//          max-width: @gridWidth;
+//          .showHorisontalGrid(@gridWidth);
+// }
+
+
+//*****************************
+// Vertical Grid
+//*****************************
+
+// Utifall att jag i framtiden vill ändra till t ex ett 24-grid:
+// // Default grid, change to fit your requirements.
+// @columnWidth:   60;
+// @gutterWidth:   20;
+// @columns:       12;
+
+
+// Modifiering av API:et till gridet enl. video 307
+// Modifiering så att .showGrid kan ta bakgrundsbilden som argument enl. video 308
+
+.inner-wrap {
+    // @gridImage: "../img/grid/grid950x24x50x10-nomargin.png";
+    @gridImage: "../img/grid/grid940x12x60x20-nomargin.png";
+    //  .container(@gridWidth);
+    .grid(@gridWidth);   // .grid() ersätter .container()
+
+    // För att kunna visa vgrid på godtycklig sida
+    // Om vgridklassen ligger på html-elemntet så visas gridet
+    html.vgrid & {      // & = parent selector (fungerar som omvänd p-selector i detta fallet) html.grid följt av .innerwrap
+        .showGrid(@gridWidth, @gridImage);
+    }
+    // max-width: @gridWidth;           // Behövs inte efter v307-modifieringar
+    // .showGrid(@gridWidth, @gridImage);
+
+
+    // Om man vill få header- och footerinnehållet att sträcka sig över hela sidan.
+    // Men då måste man ta bort/modifiera wrap-all.
+    // OBS fungerade inte som tänkt när jag provade!
+
+    // &.inner-wrap-header,
+    // &.inner-wrap-footer {
+    //     @gridWidth: 100%;
+    //     .grid(@gridWidth);
+    // html.vgrid & {                                  // & = parent selector html.grid följt av .innerwrap
+    //     .showGrid(@gridWidth, @gridImage);
+    // }
+    // }
+}
+
+
+// För att v-gridet alltid ska synas på grid-sidan:
+body.route-grid .inner-wrap {
+    // @gridImage: "../img/grid/grid950x24x50x10-nomargin.png";
+    @gridImage: "../img/grid/grid940x12x60x20-nomargin.png";
+    //  .container(@gridWidth);
+    .grid(@gridWidth);   // .grid() ersätter .container()
+        .showGrid(@gridWidth, @gridImage);
+        // max-width: @gridWidth;           // Behövs inte efter v307-modifieringar
+
+}
+
+
+// // Om jag vill att v-gridet ska synas på alla sidor alltid
+// .inner-wrap {
+//     // @gridImage: "../img/grid/grid950x24x50x10-nomargin.png";
+//     @gridImage: "../img/grid/grid940x12x60x20-nomargin.png";
+//     //  .container(@gridWidth);
+//     .grid(@gridWidth);   // .grid() ersätter .container()
+//         .showGrid(@gridWidth, @gridImage);
+//         // max-width: @gridWidth;           // Behövs inte efter v307-modifieringar
+// }
+
+// .inner-wrap.inner-wrap-flash {
+//     .column(@columns/12*8);
+//     .push(@columns/6);
+// }
+
+// // behövs för att flash-bilden ska vara centrerad på grid-bilden även när gridet visas
+// body.route-grid .inner-wrap.inner-wrap-flash {
+//     .push(@columns/6);
+// }
+
+// *******************************************************************
+
+
+// BLOGG-sidan
+
+body.route-blogg.outer-wrap-main {
+    width: @gridWidth2;
+    overflow: auto;
+}
+
+body.route-blogg .inner-wrap-main {
+    // @gridImage: "../img/grid/grid950x24x50x10-nomargin.png";
+    @gridImage: "../img/grid/grid940x12x60x20-nomargin.png";
+    .container();
+    max-width: @gridWidth2;
+    .showGrid(@gridWidth2, @gridImage);
+}
+
+body.route-blogg.wrap-all~main {
+   max-width: 100%;
+}
+
+// *******************************************************************
+
+
+// Typography
+.wrap-all {
+    .font();
+    .typographyHeadings();
+    .typographyTextElements();
+    .typographyCodeElements();
+    .typographyListElements();
+    .typographyTableElements();
+    .typographyOtherElements();
+}
+
+
+ .inner-wrap {
+     .container();
+     max-width: 960px;
+}
+
+/**************************************************************************
+/**************************************************************************
+
+/* KOPIERAT FRÅN REGIONS.LESS:
+/* Ta bort saker som inte har med positioneringen (och därmed grid-systemet) att göra
+/* Dessa ska ligga i style.less
+
+/****************************************************************************/
+
+
+
+// // *******************************
+//
+// // DEFINING "LESS-VARIABLES"
+//  @owm: outer-wrap-main;
+//  @art: article;
+//
+// // *******************************
+
+
+div.outer-wrap.outer-wrap-flash {
+    overflow: visible;
+    // margin-bottom:  @magicNumber*3;
+}
+
+.inner-wrap-flash .row {
+    box-sizing: border-box;
+    // background-color: turquoise;
+    // height: 229px;          // För att texten i breadcrumb ska ligga på h-gridet vid ändring av sidans storlek!
+    height: @magicNumber*10;          // För att texten i breadcrumb ska ligga på h-gridet vid ändring av sidans storlek!
+    margin-bottom: @magicNumber/2;
+}
+
+div.outer-wrap.outer-wrap-breadcrumb {
+    box-sizing: border-box;
+    clear: both;            // Gjorde susen nu, hamnar outer-wrap-breadcrump nedanför flash-regionen
+    // overflow: visible;
+    // margin-bottom:  @magicNumber*3;
+    margin-bottom: @magicNumber/2;
+}
+
+.inner-wrap-breadcrumb .row {
+    box-sizing: border-box;
+    // background-color: turquoise;
+    // height: 229px;          // För att texten i breadcrumb ska ligga på h-gridet vid ändring av sidans storlek!
+    // height: @magicNumber*10;          // För att texten i breadcrumb ska ligga på h-gridet vid ändring av sidans storlek!
+    // margin-bottom: @magicNumber/2;
+}
+
+
+
+
+// // Var tvungen att lägga till nav.breadcrumb-list (utöver breadcrumb-list) för att kunna få
+// //"list-style: none" och "display inline" även på "huvud-breadcrumben".
+.breadcrumb-list {
+
+    ul {
+        //margin: 0;
+        // border: 1px solid yellow;
+        padding: 0;
+        list-style: none;
+        display: inline;
+        // overflow: auto;
+        // padding-top: @magicNumber*3;
+        // height: @magicNumber*5 !important;
+    }
+
+    li {
+        display: inline;
+
+        &::after {
+            content: " » ";
+        }
+    }
+
+    a {
+        box-sizing: border-box;
+        // border: 1px solid green;
+        // background-color: white;
+    }
+}
+//
+
+.breadcrumb-wrap {
+        // over-flow: auto;
+        // clear: both;
+        .column(6);
+        .push(3);
+        margin-bottom: (@magicNumber);
+        // background-color:  rgb(179, 106, 200);
+        //display: inline;    // flyttade sig, men hamnade inte på samma rad
+}
+
+.next-previous {
+   // .push(2);
+   //.column(8);      // Bredden ska ej anges här utan i .next, .previous
+   box-sizing: border-box;
+   min-height: @magicNumber*1.5;
+   ///border: 2px solid brown;
+   max-width: 100%;
+
+   .next,
+   .previous {
+       // border: 2px solid yellow;
+       .column(@columns/3);
+       min-height: 1em;            // Ändrar endast höjden på next-previous?!
+       padding-bottom: 0;
+       display: inline;
+    //    clear: both;
+   }
+
+   .next {
+       // border: 2px solid lightgreen;
+       float: right;
+       text-align: right;
+       padding-bottom: 0;
+    //    margin-top: 24px;
+   }
+}
+
+
+// ME-PAGE
+
+.me-image {
+    box-sizing: border-box;
+    // border: 6px ridge #D6DCDA;               // Ska flyttas över till style_ts.less
+    // border-radius: 6px;
+    .border(6*@brdWidth);
+    .border-radius(0);
+    height: @magicNumber*9;
+    width: @magicNumber*9*0.8;
+    // width: 210px;
+    margin-left: @magicNumber/2;
+    float: right;
+}
+
+
+// ABOUT-PAGE
+
+.about-image {
+    box-sizing: border-box;
+    // height: @magicNumber*2;
+    // width: @magicNumber*2*0.9;
+    // width: 210px;
+    margin-left: @magicNumber/2;
+    // width: 15%;
+    min-width: 40px;
+    // border: 4px ridge #D6DCDA;           // Ska flyttas över till style_ts.less
+    // border-radius: 4px;
+    .border(4*@brdWidth);
+    .border-radius(0);
+    margin-top: (@magicNumber)-4px;
+    margin-bottom: (@magicNumber)*6;    // Fungerar inte!
+}
+
+
+// ABOUT-PAGE
+figure.about-image {
+    box-sizing: border-box;
+    height: @magicNumber*4;
+    width: @magicNumber*4*0.9;
+    // width: 15%;
+    // min-width: 40px;
+    // border: 4px ridge #D6DCDA;
+    // border-radius: 4px;
+    .push(@columns/12);
+    padding: @magicNumber 0.5em @magicNumber/2 0.5em;
+    // margin-left: 5%;
+    // margin-right: 85%;
+    margin-top: (@magicNumber)-4px;
+    margin-bottom: @magicNumber;
+}
+
+//
+//
+// ARTICLES ON ALL PAGES
+
+//Inlagt av aa
+.@{art} {
+    clear: right;       // Added to get the next-previous bar to "fill up its space" even if previous is not showing.
+    //.column(8);   // Har ingen effekt?
+}
+
+.route-about .@{owm} .@{art} {
+    text-align: left;
+}
+
+
+.@{owm} .@{art} {
+    //clear: right;       // Added to get the next-previous bar to "fill up its space" even if previous is not showing.
+    // max-width: 80%;
+    // min-height: 25em;
+    min-height: @magicNumber*16.5-6px;       // För att få den efterföljande texten att ligga på på h-gridet även för de sidor m min-höjd.
+    padding: 0 2.5em 0.25em 2.5em;     //top, right, bottom, left
+    // border-radius: 10px;
+    margin-top: @magicNumber;
+    margin-bottom: @magicNumber;
+}
+
+
+// REPORT-PAGE
+
+route-report .@{owm} .@{art} {
+        // margin-top: 5em;
+        //.column(8);       // Har ingen effekt?
+}
+
+
+//******
+//* KOPIERAT FRÅN LAYOUT_RESPONSIVE.LESS:
+//* (Tips från EF)
+//* Modifiera enligt egna önskemål
+//******
+
+
+// @import "grid.less";
+//
+//@totalWidth: 100%;           // Fluid layout          Om denna avkommenteras försvinner allt innehåll på gridsidan!
+//
+// .wrap {
+//     .container();
+//     max-width: 960px;
+// }
+
+.row {
+    // margin-left: 0;
+    .row();
+}
+
+
+// .header,
+// .flash,
+// .footer {
+//     .column(12);
+// }
+
+// .header {
+//     .column(12);
+// }
+
+// GRID-page
+
+.article-toc {
+    padding-left: .5em;
+}
+//user agent stylesheet
+li {
+    display: list-item;
+    text-align: -webkit-match-parent;
+}
+//Inherited from ul.toc
+.toc {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    margin-bottom: @magicNumber;
+}
+
+// *************************
+
+.main {
+    box-sizing: border-box;
+    margin: 0;
+    // border: 1px solid rgb(180, 187, 179);
+    // border-radius: 10px;
+    padding-top: 10px;      // 180907
+    .border(1px);
+    .border-radius(10px);
+    .column(@columns/12*8);
+    .push(@columns/6);
+    margin-bottom: (@magicNumber)-4px;
+    // margin-bottom: (@magicNumber);
+    // overflow: auto;
+    .article {
+        max-width: 60%;
+        width: 60%;
+        .push(1);
+        // margin-left: 12.5%;
+        // border: 1px dashed rgb(180, 187, 179);       // Ska flyttas över till style_ts
+        .border(1px);
+        background-color: green;
+        // margin-bottom: (@magicNumber)-1px;
+        margin-bottom: (@magicNumber)-1px;
+    }
+}
+
+// .rm-navbar-top.rm-navbar {
+//      box-sizing: border-box;
+//      background-color: pink;
+//      border: 2px solid black;
+//      .column(5);
+//     }
+//
+// ul.rm-default.rm-desktop {
+//     box-sizing: border-box;
+//     background-color: green;
+//     border: 2px solid black;
+//     .column(5);
+// }
+
+.sidebar {
+    padding-top: 11px;
+}
+
+.sidebar.sidebar-left.has-sidebar-left.has-sidebar h4 {
+    //width: 237px; från början ändrar till:
+    padding-left: 10px;
+}
+
+ul.toc {
+    padding-left: (@magicNumber/1.25);
+}
+
+.sidebar-left {
+    clear: both;            //171222 för att side-baren och main på report- o analys-sidan ska hamna på rätt plats
+    // float: left;
+    box-sizing: border-box;
+    // background-color: rgba(180, 187, 179, 0.3);              // Ska flyttas över till style_ts (4 rader)
+    // background-color: none;
+    // border: 1px solid rgb(180, 187, 179);
+    // border-radius: 10px;
+    .border(1px);
+    .border-radius(0);
+   // float: left;
+   .column(@columns/6);
+   overflow: auto;
+   margin-left: 2%;
+}
+
+
+// Innehållsförteckningen i sidebar-left
+// .block.toc.article-toc {
+.block.toc {
+    box-sizing: border-box;
+    // border: 1px dashed rgb(180, 187, 179);      // Ska flyttas över till style_ts
+    // border-radius: 10px;
+    .border(1px);
+    .border-radius(0);
+    // background-color: rgba(175, 213, 226, 0.3);
+    // background-color: rgba(234, 238, 149, 0.3);
+    // background-color:rgba(230, 217, 177, 0.3);
+    // background-color:rgba(153, 238, 134, 0.3);       // Ska flyttas över till style_ts
+    // rgb(153, 238, 134)
+    // rgb(230, 217, 177)
+    margin-top: @magicNumber;
+    padding: 0 0.1em @magicNumber/2px 0.1em;
+    width: 85%;
+    margin-left: 7.5%;
+    margin-right: 7.5%;
+    // margin-left: auto;
+    // margin-right: auto;
+}
+
+.main.has-sidebar-left {
+    box-sizing: border-box;
+    // border: 1px solid rgb(180, 187, 179);                // Ska flyttas över till style_ts
+    .border(1px);
+    // background-color: rgba(180, 187, 179, 0.3);
+    // background-color: green;
+    .column(@columns/12*8);
+    //.push(1);
+    margin-bottom: (@magicNumber/2)+6px;
+    overflow: auto;
+    .article {
+        box-sizing: border-box;
+        // border: 1px dashed rgb(180, 187, 179);            // Ska flyttas över till style_ts
+        .border(1px);
+        // background-color: rgba(180, 187, 179, 0.3);
+        max-width: 73%;
+        width: 73%;
+        .push(1);
+        margin-top: -@magicNumber/2-2px;
+        margin-bottom: (@magicNumber/2)-2px;
+        //background-color: green;
+        padding: 0 3em 1em 3em;     //top, right, bottom, left
+    }
+}
+
+//.main .has-sidebar-right {                // Fungerade inte
+.main.has-sidebar-right {
+    box-sizing: border-box;
+    .border(1px);
+    margin-bottom: (@magicNumber);
+    overflow: auto;
+    .column(@columns/12*8);
+    .article {
+        width: 64.5%;
+        max-width: 100%;
+        // border: 1px dashed rgb(180, 187, 179);            // Ska flyttas över till style_ts
+        .border(1px);
+        padding: 0 2em @magicNumber/2px 2em;
+        margin-top: -@magicNumber/2-2px;
+        // margin-bottom: -@magicNumber/2-2px;
+        margin-bottom: @magicNumber;
+        overflow: auto;
+    }
+}
+
+
+/***************
+/* SIDEBAR-RIGHT
+***************/
+
+.sidebar-right {
+    box-sizing: border-box;
+    // border: 1px solid rgb(180, 187, 179);        // Ska flyttas över till style_ts
+    // border-radius: 10px;
+    .border(1px);
+    .border-radius(0);
+   .column(@columns/3);
+    overflow: visible;
+}
+
+.block.toc.article-toc {
+    box-sizing: border-box;
+    // border: 1px dashed rgb(180, 187, 179);               // Ska flyttas över till style_ts
+    // border-radius: 10px;
+    .border(1px);
+    .border-radius(0);
+    margin-top: @magicNumber;     // För att få texten att ligga på på h-gridet.
+    padding: 0 2em @magicNumber/2px 2em;
+    width: 80%;
+    margin-left: 10%;
+    overflow: auto;
+    text-overflow: ellipsis;
+}
+
+
+/***************
+/*  BY-LINE
+***************/
+
+
+// BYLINE
+
+.content.byline {
+    body.route-grid &,
+    body.route-typography &,
+    body.route-grid- &,
+    body.route-typography- & {
+        width: 95%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+
+
+.content.byline.author {
+
+    body.route-grid &,
+    body.route-typography &,
+    body.route-grid- &,
+    body.route-typography- & {
+        box-sizing: border-box;
+        .column(@columns/2);
+        .push(@columns/4);
+        // border: 2px solid #D6DCDA;               // Ska flyttas över till style_ts.less
+        // border-radius: 4px;
+        .border(1px);
+        // .border-radius(0);
+        text-align: left;
+        // padding: 1em 0.5em 0.5em 0; // För att få ett mellanrum mellan bilden och bylinens ram.
+        // padding-right: 0.5em;
+        padding-top: (@magicNumber)-1px;      // För att få ett mellanrum mellan bilden och bylinens ram.
+        padding-bottom: @magicNumber/1;      // För att få ett mellanrum mellan bilden och bylinens ram.
+        // margin-left: auto;
+        // margin-right: auto;
+        // padding-bottom: 0.5em;
+        // margin-bottom: (@magicNumber)-2px;       // För att få den efterföljande texten att ligga på på h-gridet.
+        margin-bottom: (@magicNumber)-1px;
+        overflow: auto;
+    }
+}
+
+.content.byline.author {
+    box-sizing: border-box;
+    .column(@columns/2);
+    .push(@columns/4);
+    // border: 2px solid #D6DCDA;               // Ska flyttas över till style_ts.less
+    // border-radius: 4px;
+    .border(1px);
+    // .border-radius(0);
+    text-align: left;
+    // padding: 1em 0.5em 0.5em 0; // För att få ett mellanrum mellan bilden och bylinens ram.
+    // padding-right: 0.5em;
+    padding-top: (@magicNumber)-1px;      // För att få ett mellanrum mellan bilden och bylinens ram.
+    padding-bottom: (@magicNumber)-1px;      // För att få ett mellanrum mellan bilden och bylinens ram.
+    // margin-left: auto;
+    // margin-right: auto;
+    // padding-bottom: 0.5em;
+    // margin-bottom: (@magicNumber)-2px;       // För att få den efterföljande texten att ligga på på h-gridet.
+    margin-bottom: (@magicNumber)-1px;
+    overflow: auto;
+}
+
+#byline.byline  {
+    box-sizing: border-box;
+    // padding-bottom: @magicNumber/2;      // För att få ett mellanrum mellan bilden och bylinens ram.
+    // border: 2px solid #D6DCDA;               // Ska flyttas över till style_ts.less
+    // border-radius: 4px;
+    // .border(2px);
+    // .border-radius(0);
+    width: 95%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+// .content.byline {
+//     padding-bottom: @magicNumber/2;      // För att få ett mellanrum mellan bilden och bylinens ram.
+//     // border: 2px solid #D6DCDA;               // Ska flyttas över till style_ts.less
+//     // border-radius: 4px;
+//     // .border(none);
+//     // .border-radius(0);
+//     overflow: auto;                     // Har effekt!
+//     background-color: lightblue;        // Har ingen effekt
+//     margin-bottom: @magicNumber/2;
+// }
+// Test 180905
+div#byline.byline  p {
+    margin-top: 22px;   // (-2px border);
+}
+
+.byline-image {
+    margin: (@magicNumber)-1 @magicNumber/2 0 @magicNumber/2;
+    // border-radius: @brdRadius;
+    .border-radius(0);
+    overflow: auto;     // För att bilden ska se bra ut i sin ram
+    float: left;
+}
+
+
+// body.route-grid .content.byline {
+//     // .column(@columns/6);
+//     // .push(@columns/2);
+//     width: 95%;
+//     margin-left: auto;
+//     margin-right: auto;
+// }
+
+
+
+// Diverse färger
+
+// background-color: rgba(162, 121, 187, 0.2);
+// background-color: rgba(180, 187, 179, 0.3);     // Ska flyttas över till style_ts
+// background-color: rgba(180, 187, 179, 0.3);
+// rgb(175, 213, 226)
+// rgb(179, 199, 210)
+// background-color: rgba(162, 121, 187, 0.3);
+// border: 1px solid rgb(162, 121, 187);
+// background-color: rgba(198, 161, 132, 0.3);
+// border: 1px solid rgb(198, 161, 132);
+// border: 1px solid rgb(180, 187, 179);             // Ska flyttas över till style_ts
+// background-color: rgba(180, 187, 179, 0.3);
+// background-color: rgba(235, 242, 227, 0.3);
+// // background-color: rgba(175, 213, 226, 0.3);
+// background-color: rgba(153, 238, 134, 0.3);
+// rgb(234, 238, 149)

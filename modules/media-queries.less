@@ -1,3 +1,7 @@
+/** -------------------------------------------
+/*  media-queries.less
+/**-------------------------------------------*/
+
 /** --------------------------------------------------------------
  *  Responsive design
  */
@@ -22,7 +26,7 @@ img {
 
 @media screen and (max-width: 880px) {
     .site-logo-text {
-        background-color: rgba(221, 237, 37, 0.2);
+        // background-color: rgba(221, 237, 37, 0.2);
         font-size: 1.75em;
     }
 
@@ -44,7 +48,7 @@ img {
 
 @media screen and (max-width: 820px) {
     .site-logo-text {
-        background-color: rgba(237, 37, 181, 0.2);
+        // background-color: rgba(237, 37, 181, 0.2);
         .column(12);
     }
 
@@ -95,7 +99,9 @@ img {
         // margin-bottom: (@magicNumber/2)-2px;
         }
 
-    .content .byline {
+    // Ändrat 180906
+    // .content .byline {
+    .content.byline {
         .column(8);
         .push(2);
     }
@@ -103,14 +109,14 @@ img {
     // ARTIKLARNA + EV. SIDOBARS-INNEHÅLL GÖRS BREDARE
 
     .main {
-        background-color: rgba(114, 24, 171, 0.12);
+        // background-color: rgba(114, 24, 171, 0.12);
         .column(10);
         .push(1);
         // padding: 0.25em 1em 0.25em 1em;     //top, right, bottom, left
     }
 
     .@{owm} .@{art} {
-        background-color: rgba(172, 116, 78, 0.26);
+        // background-color: rgba(172, 116, 78, 0.26);
         width: 68%;
         max-width: 90%;
         .push(1);
@@ -130,8 +136,8 @@ img {
 
     .main.has-sidebar-left {
         box-sizing: border-box;
-        border: 1px solid rgb(180, 187, 179);
-        background-color: rgba(180, 187, 179, 0.3);
+        // border: 1px solid rgb(180, 187, 179);
+        // background-color: rgba(180, 187, 179, 0.3);
         // background-color: green;
         .column(8);
         //.push(1);
@@ -140,8 +146,8 @@ img {
 
         .article {
             box-sizing: border-box;
-            border: 1px dashed rgb(180, 187, 179);
-            background-color: rgba(180, 187, 179, 0.3);
+            // border: 1px dashed rgb(180, 187, 179);
+            // background-color: rgba(180, 187, 179, 0.3);
             max-width: 73%;
             width: 73%;
             .push(1.5);
@@ -212,7 +218,9 @@ img {
     // Endast för sidor med side-bar right (för att få alla footer-delar att
     // följa h-gridet).
 
-    body.route-grid .content .byline {
+    // Ändrat 180906
+    body.route-grid .content.byline {
+    // body.route-grid .content .byline {
         // background-color: blue;
         margin-bottom: (@magicNumber)-4px;
     }
@@ -221,12 +229,16 @@ img {
         width: 100%;
     }
 
-    body.route-typography .content .byline {
+    // Ändrat 180906
+    body.route-typography .content.byline {
+    // body.route-typography .content .byline {
         // background-color: blue;
         margin-bottom: (@magicNumber)-4px;
     }
 
-    .content .byline {
+    // Ändrat 180906
+    .content.byline {
+    // .content .byline {
         .column(10);
         .push(1);
     }
@@ -297,18 +309,27 @@ img {
         }
 
     .@{owm} .@{art} {
-        background-color: rgba(82, 39, 87, 0.21);
+        // background-color: rgba(82, 39, 87, 0.21);
         .push(1);
         max-width: 80%;
     }
 
     .byline-image {
         float: none !important;
+        width: 20%;
         margin-left: auto !important;
         margin-right: auto !important;
     }
 
-    .content .byline {
+    .byline-image img {
+        display: block;
+        width: 75px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .content.byline {
+    // .content .byline {
         padding-left: @magicNumber;
     }
 

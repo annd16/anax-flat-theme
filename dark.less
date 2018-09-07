@@ -1,0 +1,61 @@
+/**
+* Anax Flat theme.
+*/
+// @import url(modules.less);
+@import url(light.less);
+
+// ************************************************
+// ***              Defining colors             ***
+// ************************************************
+
+
+// Invert the base colors
+@baseColor1: #226666;           // Primary color
+@baseColor2: #ffffff;
+@baseColor3: #ffffff;
+@accentColor1: #AA6C39;         // Complementary color
+
+
+@maxBgColor: darken(@baseColor1, 15%);
+
+@bgColorHtml: darken(@baseColor1, 10%);
+@bgColorBody: @baseColor1;
+@bgColorWA: darken(@baseColor1, 5%);
+@bgColorHeader: darken(@baseColor1, 15%);
+@bgColorMain: shade(#226666, 40%);
+@bgColorSidebar: darken(@baseColor1, 2.5%);
+@bgColorArticle: darken(@baseColor1, 2.5%);
+@bgColorByline: darken(@baseColor1, 2.5%);
+@bgColorToc: @baseColor1;
+@bgColorFooter: darken(@baseColor1, 15%);
+@bgColorBlockSitefooter: darken(@baseColor1, 15%);
+
+@brdColor:  darken(@baseColor1, 17.5%);
+
+@aLink: darken(@baseColor2, 10%);
+@aVisited: darken(@baseColor2, 20%);
+@aHover: darken(@baseColor2, 40%);
+@aActive: @baseColor2;
+
+
+h1, h2, h3, h4 {
+    display: inline-block;
+    padding: 6px 1em;
+    border-radius: 4px;
+    background: radial-gradient(@accentColor1, white);
+    ::after {
+        content: "\A";
+    }
+    // .setColors(@accentColor1, black);
+}
+
+
+@base: @accentColor1;
+
+article.article {
+  // color: saturate(@base, 80%);
+  color: darken(@base, 40%);
+  // border-color: lighten(@base, 5%);
+  border-color: lighten(@base, 5%);
+  h1, h2, h3, h4 { .box-shadow(0 0 20px, 90%) }    // Hade stor effekt på utseendet på skuggan
+}

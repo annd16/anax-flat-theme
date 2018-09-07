@@ -1,0 +1,519 @@
+/** -------------------------------------------
+/*  style_ts.less
+/**-------------------------------------------*/
+
+/** -------------------------------------------
+/*  This is the module in which all changes to borders and colors are made
+/**-------------------------------------------*/
+
+@import (reference) url(grid-float.less);
+@import (reference) url(grid-helpers.less);
+@import url(layout_ts.less);     // Blev jättekonstigt när jag försökte importera denna via referense!!
+@import (reference) url(modules_typography.less);
+
+
+
+// rgba(161, 155, 123, 0.5);
+// rgb(246, 252, 240);
+// rgb(159, 153, 122);
+
+// Defining LESS-variables
+
+@baseColor1: #ffffff;
+@baseColor2: #000000;
+
+@bgColor: @baseColor1;
+@fColor: @baseColor2;
+
+@brdColor: none;
+@brdRadius: 10px;
+@brdWidth: 1px;
+
+
+// @waBgColor: white;
+// @waFColor: blue;
+
+@magicNumber: 24px;
+
+// Förkortningar
+@owm: outer-wrap-main;
+@art: article;
+@hsbl: has-sidebar-left;
+@hsbr: has-sidebar-left;
+@hsb: has-sidebar;
+@sb: sidebar;
+
+@bgColor2: rgba(220, 220, 220, 0.3);
+// background-color: rgba(180, 187, 179, 0.3);
+@fColor2: lighten(@fColor, 20%);
+
+// @bgColor3: #D6DCDA;
+@bgColor3: darken(@bgColor, 10%);
+@fColor3: darken(@bgColor, 25%);
+
+@htmlBgImage: "../img/color-1792501_1280-edit5.jpg";
+// @htmlBgImage: "";
+@htmlBgColor: none;
+
+
+// Defining mixins
+.setColors(@bgColor: @bgColor; @fColor: @fColor) {
+    background-color: @bgColor;
+    color: @fColor;
+}
+
+.border(@width: 1px, @style: dashed, @color:  @brdColor, @brdRadius: none) {
+    border: @width @style @color;
+    border-radius: @brdRadius;
+}
+
+.border-radius(@brdRadius: none) {
+    border-radius: @brdRadius;
+};
+
+
+// .showHtmlBgPicture(@htmlBgImage, @htmlBgColor) {
+//     // Variable interpolation in a string:
+//     background: url("@{htmlBgImage}") no-repeat fixed center center;
+//     background-size: 100% auto;
+//     -webkit-background-size: cover;
+//     -moz-background-size: cover;
+//     -o-background-size: cover;
+//     background-size: cover;
+//     background-color: @htmlBgColor;
+//     // margin-left: auto;           //Tas bort enl video 307
+//     // margin-right: auto;
+// }
+
+// .showHtmlBgPicture(@htmlBgImage) {
+//     // Variable interpolation in a string:
+//     background: url("@{htmlBgImage}") no-repeat fixed center center;
+//     background-size: 100% auto;
+//     -webkit-background-size: cover;
+//     -moz-background-size: cover;
+//     -o-background-size: cover;
+//     background-size: cover;
+//     // margin-left: auto;           //Tas bort enl video 307
+//     // margin-right: auto;
+// }
+// //
+// //
+// //  // html {
+// //  //     background: url(../img/color-1792501_1280-edit5.jpg) no-repeat center center fixed;
+// //  //     -webkit-background-size: cover;
+// //  //     -moz-background-size: cover;
+// //  //     -o-background-size: cover;
+// //  //     background-size: cover;
+// //  //     //background-color: #bdd18d;
+// //  //     overflow-y: scroll;     /*Visa alltid scrollbaren*/
+// //  // }
+// //
+// //
+//  html {
+//     .showHtmlBgPicture(@htmlBgImage);
+//     // .setColors(@bgColor: @bgColor, @fColor: @fColor)   // If you don't want a background picture
+//  }
+
+ // // Typography
+ // .wrap-all {
+ //     .font();
+ //     .typographyHeadings();
+ //     .typographyTextElements();
+ //     .typographyCodeElements();
+ //     .typographyListElements();
+ //     .typographyTableElements();
+ //     .typographyOtherElements();
+ // }
+
+ // // ***** SHOW THE GRIDS  *****//
+ //
+ // @gridWidth: 960px;
+ // @gridWidth2: 100%;
+ //
+ // // För att h-gridet alltid ska synas på typography-sidan:
+ // body.route-typography {
+ //     //  .container();
+ //      .grid();
+ //      max-width: @gridWidth;
+ //      .showHorisontalGrid(@gridWidth);
+ //      border: 5px solid black;
+ //  }
+
+
+ // .wrap-all {
+ //     //    background-color: @bgColor2 !important;;
+ //     //     color: @fColor2;
+ //     .setColors(@bgColor: @bgColor, @fColor: @fColor);
+ //     .border(@width: 1px; @style: dashed; @color:  @brdColor; @brdRadius: none);
+ // }
+
+// // MAIN AND SIDEBAR (IF PRESENT)
+//
+//  .sidebar {
+//      background-color: none;
+// }
+
+// ME-PAGE
+
+.me-image {
+    // border: 6px ridge #D6DCDA;               // Ska flyttas över till style_ts.less
+    .border(@width: 0.6*@brdWidth; @style: ridge; @color:  @brdColor; @brdRadius: 6*@brdRadius);
+    height: @magicNumber*9;
+    width: @magicNumber*9*0.8;
+    // width: 210px;
+    margin-left: @magicNumber/2;
+    float: right;
+}
+
+
+//// ABOUT-PAGE
+
+//  .about-image {
+//     background-color: @bgColor3;
+//     // border: 4px ridge #D6DCDA;           // Ska flyttas över till style_ts.less
+//     .border(@width: 0.4*@brdWidth; @style: ridge; @color:  @brdColor; @brdRadius: 4*@brdRadius);
+// }
+
+
+// .about-image {
+//     margin-top: (@magicNumber)-4px;
+//     margin-bottom: (@magicNumber)*6;    // Fungerar inte!
+// }
+
+
+//  .@{owm} .@{art} {
+//     background-color: rgba(162, 121, 187, 0.2);
+// }
+
+
+// .main {
+//     .article {
+//         background-color: rgba(180, 187, 179, 0.3);     // Ska flyttas över till style_ts
+//         // border: 1px dashed rgb(180, 187, 179);       // Ska flyttas över till style_ts
+//         border-radius: 10px;
+//         .setColors(@bgColor: @bgColor, @fColor: @fColor);
+//         .border(@width: 1px; @style: dashed; @color:  @brdColor; @brdRadius: none);
+//         // .border();
+//         // background-color: green;
+//         // margin-bottom: (@magicNumber)-1px;
+//         // margin-bottom: (@magicNumber);
+//     }
+// }
+
+
+// .sidebar-left {
+//
+//     // background-color: rgba(180, 187, 179, 0.3);              // Ska flyttas över till style_ts (4 rader)
+//     // background-color: none;
+//     // border: 1px solid rgb(180, 187, 179);
+//     .setColors(@bgColor: @bgColor, @fColor: @fColor);
+//     .border(@width: 1px; @style: solid; @color:  @brdColor; @brdRadius: 10px);
+// }
+//
+// // Innehållsförteckningen i sidebar-left
+// // .block.toc.article-toc {
+// .block.toc {
+//     // border: 1px dashed rgb(180, 187, 179);      // Ska flyttas över till style_ts
+//     .border(@width: 1px; @style: dashed; @color:  @brdColor; @brdRadius: 10px);
+//     // background-color: rgba(175, 213, 226, 0.3);
+//     // background-color: rgba(234, 238, 149, 0.3);
+//     // background-color:rgba(230, 217, 177, 0.3);
+//     // background-color:rgba(153, 238, 134, 0.3);       // Ska flyttas över till style_ts
+//     // rgb(153, 238, 134)
+//     // rgb(230, 217, 177)
+// }
+
+
+// .main.has-sidebar-left {
+//     box-sizing: border-box;
+//     // border: 1px solid rgb(180, 187, 179);                // Ska flyttas över till style_ts
+//     background-color: rgba(180, 187, 179, 0.3);
+//     .border(1px);
+//     // background-color: green;
+//     .article {
+//         // border: 1px dashed rgb(180, 187, 179);            // Ska flyttas över till style_ts
+//         .border(1px);
+//         background-color: rgba(180, 187, 179, 0.3);
+//     }
+// }
+
+// .main.has-sidebar-left .@{art} {
+//     // background-color: rgba(162, 121, 187, 0.2);
+// }
+//
+//
+// //.main .has-sidebar-right {                // Fungerade inte
+// .main.has-sidebar-right {
+//     // border: 1px solid rgb(180, 187, 179);             // Ska flyttas över till style_ts
+//     .border(1px);
+//     // background-color: rgba(180, 187, 179, 0.3);
+//     // rgb(175, 213, 226)
+//     // rgb(179, 199, 210)
+//     .article {
+//         // border: 1px dashed rgb(180, 187, 179);            // Ska flyttas över till style_ts
+//         .border(1px);
+//         background-color: rgba(180, 187, 179, 0.3);
+//     }
+// }
+
+
+// /***************
+// /* SIDEBAR-RIGHT
+// ***************/
+//
+// .sidebar-right {
+//     // border: 1px solid rgb(180, 187, 179);        // Ska flyttas över till style_ts
+//     // background-color: red;
+//     // background-color: rgba(180, 187, 179, 0.3);
+//     .setColors(@bgColor: @bgColor, @fColor: @fColor);
+//     .border(@width: 1px; @style: solid; @color:  @brdColor; @brdRadius: 10px);
+// };
+//
+// .block.toc.article-toc {
+//     // border: 1px dashed rgb(180, 187, 179);               // Ska flyttas över till style_ts
+//     // border-radius: 10px;
+//     // .border(1px);
+//     // .border-radius(0);
+//     // // background-color: rgba(175, 213, 226, 0.3);
+//     // background-color: rgba(153, 238, 134, 0.3);
+//     .setColors(@bgColor: @bgColor, @fColor: @fColor);
+//     .border(@width: 1px; @style: dashed; @color:  @brdColor; @brdRadius: 10px);
+//     // rgb(234, 238, 149)
+// }
+
+// BYLINE
+
+.content .byline {
+    background-color: rgba(235, 242, 227, 0.3);
+    // padding-bottom: @magicNumber/2;      // För att få ett mellanrum mellan bilden och bylinens ram.
+    // border: 2px solid #D6DCDA;               // Ska flyttas över till style_ts.less
+    .border(@width: 2px; @style: solid; @color:  @brdColor; @brdRadius: 4px);
+}
+
+
+.byline-image {
+    // margin: (@magicNumber)-1 @magicNumber/2 0 @magicNumber/2;
+    .border(@width: 2px; @style: solid; @color:  none; @brdRadius: 4px);
+    // float: left;
+}
+
+// Analysis pages
+
+.analysis {
+    .setColors(@bgColor: @bgColor; @fColor: @fColor);
+    .border(@width: 1px; @style: dashed; @color:  @baseColor2; @brdRadius: none);
+}
+
+// td {
+//     width: 10px;
+//     height: 10px;
+//     &#id11 {
+//         .setColors(@bgColor: @bgColor; @fColor: @fColor);
+//         .border(@width: 1px; @style: dashed; @color:  @baseColor2; @brdRadius: none);
+//         background-color: rgb(187, 22, 42);
+//     }
+//     &#id12 {
+//         .setColors(@bgColor:  #489ffc; @fColor: @fColor);
+//         .border(@width: 1px; @style: dashed; @color:  @baseColor2; @brdRadius: none);
+//     }
+//     &#id13 {
+//         .setColors(@bgColor: #313b45; @fColor: @fColor);
+//         .border(@width: 1px; @style: dashed; @color:  @baseColor2; @brdRadius: none);
+//     }
+// }
+
+
+section.table {
+    display: table;
+    border: 2px solid black;
+}
+
+div.th {
+    border: 2px solid black;
+    display: table-header-group;
+}
+
+div.tr {
+    display: table-row;
+}
+
+// div.td {
+//     display: table-cell;
+//     width: 1em;
+//     height: 1em;
+//     #11& {
+//         .setColors(@bgColor: @bgColor; @fColor: @fColor);
+//         .border(@width: 1px; @style: dashed; @color:  @baseColor2; @brdRadius: none);
+//         background-color: rgb(187, 22, 42);
+//     }
+//     &#12 {
+//         .setColors(@bgColor:  #489ffc; @fColor: @fColor);
+//         .border(@width: 1px; @style: dashed; @color:  @baseColor2; @brdRadius: none);
+//     }
+//     &#13 {
+//         .setColors(@bgColor: #313b45; @fColor: @fColor);
+//         .border(@width: 1px; @style: dashed; @color:  @baseColor2; @brdRadius: none);
+//     }
+// }
+
+.td {
+    display: table-cell;
+    width: 1em;
+    height: 1em;
+    .setColors(@bgColor: @bgColor; @fColor: @fColor);
+    .border(@width: 1px; @style: dashed; @color:  @baseColor2; @brdRadius: none);
+    #id11& {
+            .setColors(@bgColor: #EAECEB; @fColor: @fColor);
+        }
+    #id12& {
+            .setColors(@bgColor: #3C72AD; @fColor: @fColor);
+        }
+    #id13& {
+            .setColors(@bgColor: #FCDDAA; @fColor: @fColor);
+        }
+    #id14& {
+            .setColors(@bgColor: #FFFFFF; @fColor: @fColor);
+        }
+    #id21& {
+            .setColors(@bgColor: #FFFFFF; @fColor: @fColor);
+    }
+    #id22& {
+        .setColors(@bgColor: #F3F0EB; @fColor: @fColor);
+    }
+    #id23& {
+        .setColors(@bgColor: #A02971; @fColor: @fColor);
+    }
+    #id24& {
+        .setColors(@bgColor: #F5E9F0; @fColor: @fColor);
+    }
+    #id25& {
+        .setColors(@bgColor: #EB1F07; @fColor: @fColor);
+    }
+}
+
+
+// Defining colors:     171220
+
+@maxBgColor: turquoise;
+
+@bgColorHtml: @baseColor1;
+@bgColorBody: @baseColor1;
+@bgColorMain: @baseColor1;
+@bgColorArticle: @baseColor1;
+@bgColorHeaderSiteheader: @baseColor1;
+@bgColorFooter: @baseColor1;
+@bgColorBlockSitefooter: @baseColor1;
+
+
+html {
+    .setColors(@baseColor1, @baseColor2);
+    .border(@width: 1px; @style: solid; @color:  black; @brdRadius: 10px);
+}
+
+body {
+    .setColors(green, @baseColor2);
+    .border(@width: 1px; @style: solid; @color:  black; @brdRadius: 10px);
+}
+
+main {
+    .setColors(blue, @baseColor2);
+    .border(@width: 1px; @style: solid; @color:  black; @brdRadius: 10px);
+}
+
+// .@{owm} {
+//     .setColors(orange, @baseColor2);
+// }
+
+
+header.site-header {
+    .setColors(yellow, @baseColor2);
+    .border(@width: 1px; @style: solid; @color:  black; @brdRadius: 10px);
+}
+
+div.byline {
+    .setColors(pink, @baseColor2);          // Fungerar inte??
+}
+
+div.footer {
+    .setColors(purple, @baseColor2);
+    .border(@width: 1px; @style: solid; @color:  black; @brdRadius: 10px);
+}
+
+.block .sitefooter {
+    .setColors(grey, @baseColor2);
+    .border(@width: 1px; @style: solid; @color:  black; @brdRadius: 10px);
+}
+
+// main.main.has-sidebar-left.@{hsb} {
+//     .setColors(brown, @baseColor2);
+//     .border(@width: 1px; @style: solid; @color:  black; @brdRadius: 10px);
+// }
+//
+// main.main.has-sidebar-right.@{hsb} {
+//     .setColors(brown, @baseColor2);
+//     .border(@width: 1px; @style: solid; @color:  black; @brdRadius: 10px);
+// }
+
+
+main.main {
+    &.has-sidebar-left.@{hsb} {
+        .setColors(brown, @baseColor2);
+        .border(@width: 1px; @style: solid; @color:  black; @brdRadius: 10px);
+    }
+    &.has-sidebar-right.@{hsb} {
+        .setColors(brown, @baseColor2);
+        .border(@width: 1px; @style: solid; @color:  black; @brdRadius: 10px);
+    }
+}
+
+.sidebar-left {
+    .setColors(beige, @baseColor2);
+    .border(@width: 1px; @style: solid; @color:  black; @brdRadius: 10px);
+}
+
+div.@{sb}.sidebar-left.@{hsbl}.@{hsb} {
+    .setColors(beige, @baseColor2);
+    .border(@width: 1px; @style: solid; @color:  black; @brdRadius: 10px);
+}
+
+// div.@{sb}.sidebar-right.@{hsbr}.@{hsb} {
+//     .setColors(beige, @baseColor2);
+//     .border(@width: 1px; @style: solid; @color:  black; @brdRadius: 10px);
+// }
+
+.sidebar-right {
+    .setColors(beige, @baseColor2);
+    .border(@width: 1px; @style: solid; @color:  black; @brdRadius: 10px);
+}
+
+.block.toc.article-toc {
+    .setColors(@bgColor: @bgColor, @fColor: @fColor);
+    .border(@width: 1px; @style: dashed; @color:  @brdColor; @brdRadius: 10px);
+    // rgb(234, 238, 149)
+}
+
+.@{owm} .@{art} {
+    .setColors(red, @baseColor2);
+    .border(@width: 1px; @style: solid; @color:  black; @brdRadius: 10px);
+}
+
+.me-image {
+    .border(@width: 1px; @style: solid; @color:  black; @brdRadius: 10px);
+}
+
+.byline-image {
+    .border(@width: 1px; @style: solid; @color:  black; @brdRadius: 10px);
+}
+
+.about-image {
+    .border(@width: 1px; @style: solid; @color:  black; @brdRadius: 10px);
+}
+
+
+// div.outer-wrap.outer-wrap-footer {
+//     background-color: rgba(161, 155, 123, 0.5);
+//     color: rgb(246, 252, 240);
+//     a {
+//         color: rgb(246, 252, 240);
+//     }
+// }

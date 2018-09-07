@@ -1,0 +1,415 @@
+/**
+* Anax Flat theme.
+*/
+// @import url(modules.less);
+@import url(light.less);
+
+
+@font-face {
+    font-family: 'folksbold';
+    src: url('fonts/folks-bold-webfont.woff2') format('woff2'),
+         url('fonts/folks-bold-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'folks-heavyregular';
+    src: url('fonts/folks-heavy-webfont.woff2') format('woff2'),
+         url('fonts/folks-heavy-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'folks-lightregular';
+    src: url('fonts/folks-light-webfont.woff2') format('woff2'),
+         url('fonts/folks-light-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'folksregular';
+    src: url('fonts/folks-normal-webfont.woff2') format('woff2'),
+         url('fonts/folks-normal-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+@font-face {
+    font-family: 'abhaya_librebold';
+    src: url('fonts/fonts/abhayalibre-bold-webfont.woff2') format('woff2'),
+         url('fonts/fonts/abhayalibre-bold-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'abhaya_libreextrabold';
+    src: url('fonts/fonts/abhayalibre-extrabold-webfont.woff2') format('woff2'),
+         url('fonts/fonts/abhayalibre-extrabold-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'abhaya_libremedium';
+    src: url('fonts/abhayalibre-medium-webfont.woff2') format('woff2'),
+         url('fonts/abhayalibre-medium-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'abhaya_libreregular';
+    src: url('fonts/abhayalibre-regular-webfont.woff2') format('woff2'),
+         url('fonts/abhayalibre-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'abhaya_libresemibold';
+    src: url('fonts/abhayalibre-semibold-webfont.woff2') format('woff2'),
+         url('fonts/abhayalibre-semibold-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'dejavu_serifbook';
+    src: url('fonts/dejavuserif-webfont.woff2') format('woff2'),
+         url('fonts/dejavuserif-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'dejavu_serifbold';
+    src: url('fonts/dejavuserif-bold-webfont.woff2') format('woff2'),
+         url('fonts/dejavuserif-bold-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'dejavu_serifbold_italic';
+    src: url('fonts/dejavuserif-bolditalic-webfont.woff2') format('woff2'),
+         url('fonts/dejavuserif-bolditalic-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+
+
+@font-face {
+    font-family: 'dejavu_serifcondensed';
+    src: url('fonts/dejavuserifcondensed-webfont.woff2') format('woff2'),
+         url('fonts/dejavuserifcondensed-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+
+
+@font-face {
+    font-family: 'dejavu_serifcondensed_bold';
+    src: url('fonts/dejavuserifcondensed-bold-webfont.woff2') format('woff2'),
+         url('fonts/dejavuserifcondensed-bold-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+
+
+@font-face {
+    font-family: 'dejavu_serifCnBdIt';
+    src: url('fonts/dejavuserifcondensed-bolditalic-webfont.woff2') format('woff2'),
+         url('fonts/dejavuserifcondensed-bolditalic-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+
+
+@font-face {
+    font-family: 'dejavu_serifcondensed_italic';
+    src: url('fonts/dejavuserifcondensed-italic-webfont.woff2') format('woff2'),
+         url('fonts/dejavuserifcondensed-italic-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+
+
+@font-face {
+    font-family: 'dejavu_serifitalic';
+    src: url('fonts/dejavuserif-italic-webfont.woff2') format('woff2'),
+         url('fonts/dejavuserif-italic-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'archisticobold';
+    src: url('fonts/archistico_bold-webfont.woff2') format('woff2'),
+         url('fonts/archistico_bold-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+
+
+@font-face {
+    font-family: 'archisticonormal';
+    src: url('fonts/archistico_simple-webfont.woff2') format('woff2'),
+         url('fonts/archistico_simple-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+@font-face {
+    font-family: 'rubikblack';
+    src: url('rubik-black-webfont.woff2') format('woff2'),
+         url('rubik-black-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+
+
+@font-face {
+    font-family: 'rubikblack_italic';
+    src: url('rubik-blackitalic-webfont.woff2') format('woff2'),
+         url('rubik-blackitalic-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+
+
+@font-face {
+    font-family: 'rubikbold';
+    src: url('fonts/rubik-bold-webfont.woff2') format('woff2'),
+         url('fonts/rubik-bold-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+
+
+@font-face {
+    font-family: 'rubikbold_italic';
+    src: url('rubik-bolditalic-webfont.woff2') format('woff2'),
+         url('rubik-bolditalic-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+
+
+@font-face {
+    font-family: 'rubikitalic';
+    src: url('rubik-italic-webfont.woff2') format('woff2'),
+         url('rubik-italic-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+
+
+@font-face {
+    font-family: 'rubiklight';
+    src: url('rubik-light-webfont.woff2') format('woff2'),
+         url('rubik-light-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+
+
+@font-face {
+    font-family: 'rubiklight_italic';
+    src: url('fonts/rubik-lightitalic-webfont.woff2') format('woff2'),
+         url('fonts/rubik-lightitalic-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+
+
+@font-face {
+    font-family: 'rubikmedium';
+    src: url('rubik-medium-webfont.woff2') format('woff2'),
+         url('rubik-medium-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+
+
+@font-face {
+    font-family: 'rubikmedium_italic';
+    src: url('fonts/rubik-mediumitalic-webfont.woff2') format('woff2'),
+         url('fonts/rubik-mediumitalic-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+
+
+@font-face {
+    font-family: 'rubikregular';
+    src: url('rubik-regular-webfont.woff2') format('woff2'),
+         url('rubik-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'asapbold';
+    src: url('fonts/asap-bold-webfont.woff2') format('woff2'),
+         url('fonts/asap-bold-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'fff_tusjbold';
+    src: url('fonts/fff_tusj-webfont.woff2') format('woff2'),
+         url('fonts/fff_tusj-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+// Defining LESS-variables
+
+@baseColor1: #ffffff;
+@baseColor2: #000000;
+@baseColor3: #ffffff;
+@accentColor1: #00CA00;
+
+
+// @baseColor1: #00CA00;
+// @baseColor2: #000000;
+// @baseColor3: #ffffff;
+// @accentColor1: #00CA00;
+
+
+// ************************************************
+// ***              Defining colors             ***
+// ************************************************
+
+@maxBgColor: darken(@baseColor1, 15%);
+
+@bgColorHtml: darken(@baseColor1, 10%);
+@bgColorBody: @baseColor1;
+@bgColorWA: darken(@baseColor1, 5%);
+@bgColorHeader: darken(@baseColor1, 15%);
+@bgColorMain: darken(@baseColor1, 10%);
+@bgColorSidebar: darken(@baseColor1, 2.5%);
+@bgColorArticle: darken(@baseColor1, 2.5%);
+@bgColorByline: darken(@baseColor1, 2.5%);
+@bgColorToc: @baseColor1;
+@bgColorFooter: darken(@baseColor1, 15%);
+@bgColorBlockSitefooter: darken(@baseColor1, 15%);
+
+@brdColor:  darken(@baseColor1, 25%);
+
+@aLink: lighten(@baseColor2, 10%);
+@aVisited: lighten(@baseColor2, 20%);
+@aHover: lighten(@baseColor2, 40%);
+@aActive: @baseColor2;
+
+ul.rm-default.rm-desktop {
+    // font-family: 'abhaya-libreregular';
+    font-family: 'dejavu_serifcondensed';
+}
+
+// Site title (i.e. Anax-flat)
+.site-logo-text {
+    font-family: 'folksbold';
+    // font-size: 2em;
+    // a {
+    //     text-decoration: none;
+    // }
+}
+
+article {
+    font-family: 'abhaya-libreregular';
+    font-family: 'dejavu_serifcondensed';
+}
+
+.wrap-all {
+    & h1, & h2 {
+    font-family: 'archisticobold';
+    font-family: 'dejavu_serifbold';
+    // font-family: 'fff_tusjbold';
+    }
+}
+
+.wrap-all {
+    & h3, & h4 {
+    font-family: 'fff_tusjbold';
+    font-family: 'dejavu_serifbold';
+    font-family: 'dejavu_serifcondensed_bold';
+    color: rgb(50, 50, 50);
+    // font-size: 1em;
+    }
+}
+
+// Gäller ju endast typography-temat!!!
+.content.byline {
+    // font-family: 'rubiklight_italic';
+    // .font(@fontSize: 100.01%, @fontFamily: @fontFamilyBody) {
+    // font: @fontSize/@lineHeight @fontFamily;
+    .font(0.9em, 'rubiklight_italic');
+}
+
+
+div.footer {
+    font-family: 'dejavu_serifcondensed';
+    font-size: 0.9em;
+}
