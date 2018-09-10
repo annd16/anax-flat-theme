@@ -1,0 +1,144 @@
+// ************************************************
+// ***              Analysis pages              ***
+// ************************************************
+
+
+// Defining LESS-variables
+
+@baseColor1: #fff;
+@baseColor2: #000;
+@baseColor3: #fff;
+@accentColor1: #fff;
+
+@bgColor: @baseColor1;
+@fColor: @baseColor2;
+
+@brdColor: @baseColor1;
+@brdRadius: 10px;
+@brdWidth: 1px;
+
+
+// Defining mixins
+
+.setColors(@bgColor: @bgColor; @fColor: @fColor) {
+    background-color: @bgColor;
+    color: @fColor;
+}
+
+.border(@width: 1px, @style: dashed, @color:  @brdColor, @brdRadius: 0) {
+    border: @width @style @color;
+    border-radius: @brdRadius;
+}
+.border-radius(@brdRadius: 0) {
+    border-radius: @brdRadius;
+};
+
+
+.analysis {
+    .setColors(@bgColor: @bgColor; @fColor: @fColor);
+    .border(@width: 1px; @style: dashed; @color:  @baseColor2; @brdRadius: 0);
+}
+
+section.table {
+    display: table;
+    border: 2px solid black;
+}
+
+
+div.th {
+    border: 2px solid black;
+    display: table-header-group;
+}
+
+div.tr {
+    display: table-row;
+    &.inline {
+        display: inline;
+    }
+}
+
+.td {
+    display: table-cell;
+    width: 1em;
+    height: 1em;
+    .setColors(@bgColor: @bgColor; @fColor: @fColor);
+    .border(@width: 1px; @style: dashed; @color:  @baseColor2; @brdRadius: 0);
+    #id11& {
+            .setColors(@bgColor: #EAECEB; @fColor: @fColor);
+        }
+    #id12& {
+            .setColors(@bgColor: #FFFFFF; @fColor: @fColor);
+        }
+    #id13& {
+            .setColors(@bgColor: #0C3256; @fColor: @fColor);
+        }
+    #id14& {
+            .setColors(@bgColor: #3C72AD; @fColor: @fColor);
+        }
+    #id15& {
+            .setColors(@bgColor: #FFCC33; @fColor: @fColor);
+        }
+    #id16& {
+            .setColors(@bgColor: #339933; @fColor: @fColor);
+        }
+    #id1A& {
+            .setColors(@bgColor: #FFCC33; @fColor: @fColor);
+        }
+    #id21& {
+            .setColors(@bgColor: #FFFFFF; @fColor: @fColor);
+    }
+    #id22& {
+        .setColors(@bgColor: #F3F0EB; @fColor: @fColor);
+    }
+    #id23& {
+        .setColors(@bgColor: #A02971; @fColor: @fColor);
+    }
+    #id24& {
+        .setColors(@bgColor: #F5E9F0; @fColor: @fColor);
+    }
+    #id25& {
+        .setColors(@bgColor: #EB1F07; @fColor: @fColor);
+    }
+    #id26& {
+        .setColors(@bgColor: #EB1F07; @fColor: @fColor);
+    }
+    #id1A& {
+            .setColors(@bgColor: #FFCC33; @fColor: @fColor);
+        }
+    #id31& {
+            .setColors(@bgColor: #BCC4CA; @fColor: @fColor);
+    }
+    #id32& {
+        .setColors(@bgColor: #59575C; @fColor: @fColor);
+    }
+    #id33& {
+        .setColors(@bgColor: #F9F8F1; @fColor: @fColor);
+    }
+    #id34& {
+        .setColors(@bgColor: #E6E6DF; @fColor: @fColor);
+    }
+    #id35& {
+        .setColors(@bgColor: #A6A69E; @fColor: @fColor);
+    }
+    #id36& {
+        .setColors(@bgColor: #F9F8F8; @fColor: @fColor);
+    }
+    // #id41& {
+    //     .setColors(@bgColor: #F9F8F1; @fColor: @fColor);
+    // }
+    // #id42& {
+    //     .setColors(@bgColor: #E4E4DD; @fColor: @fColor);
+    // }
+    // #id43& {
+    //     .setColors(@bgColor: #585959; @fColor: @fColor);
+    // }
+    // #id44& {
+    //     .setColors(@bgColor: #A2A29B; @fColor: @fColor);
+    // }
+    // #id45& {
+    //     .setColors(@bgColor: #93938C; @fColor: @fColor);
+    // }
+    // #id46& {
+    //     .setColors(@bgColor: #F9F8F8; @fColor: @fColor);
+    // }
+}

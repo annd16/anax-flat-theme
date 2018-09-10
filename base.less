@@ -6,6 +6,8 @@
 
 @import url(modules_base.less);
 
+@import url(analysis.less);
+
 
 // // Reset or normalize the browser-style:
 // @import url(normalize.less);
@@ -22,16 +24,37 @@
 @owm: outer-wrap-main;
 @art: article;
 
-@bgColor: white;
-@colorHF: white;
-@fColor: rgb(25, 25, 25);
+// Defining LESS-variables
+
+@baseColor1: #ffffff;
+@baseColor2: #000000;
+@baseColor3: #ffffff;
+@accentColor1: #ffffff;
+
+@bgColor: @baseColor1;
+@fColor: @baseColor2;
+
+@colorHF: @baseColor1;
+
+@brdColor: @baseColor1;
+@brdRadius: 10px;
+@brdWidth: 1px;
 
 @linkColor: black;
 @linkVisitedColor: black;
 @linkHoverColor: black;
 @linkActiveColor: black;
 
+// Defining mixins
+.setColors(@bgColor: @bgColor; @fColor: @fColor) {
+    background-color: @bgColor;
+    color: @fColor;
+}
 
+.border(@width: 1px, @style: dashed, @color:  @brdColor, @brdRadius: 0) {
+    border: @width @style @color;
+    border-radius: @brdRadius;
+}
 
 
 html {
@@ -45,27 +68,6 @@ html {
 .article {
     color: @fColor;
 }
-
-
-// // Links
-// a:link {
-//     // color: #9e5a29;
-//     color: @linkColor;
-// }
-// a:visited {
-//     // color: #617B50;
-//     color: @linkVisitedColor;
-// }
-// a:hover {
-//     // color: #B2C43F;
-//     color: @linkHoverColor;
-//     text-decoration: underline;
-// }
-// a:active {                  /* selected link */
-//     // color: #F87D25;
-//     color: @linkActiveColor;
-//
-// }
 
 // Links
 a {
@@ -87,6 +89,7 @@ a {
     color: @linkActiveColor;
     }
 }
+
 
 // .flash-image .@{scope} {
 //    background-image: @flash-image;
